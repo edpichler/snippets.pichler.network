@@ -3,6 +3,29 @@ languageCode = "en"
 title = "Eduardo Ivan Pichler"
 theme = "researcher"
 
+[params]
+  author = "Eduardo Ivan Pichler"
+  description = "Sofware Engineer in Stockholm"
+#   favicon = "favicon.ico"  # path to a .ico to use as favicon
+#   logo = ""  # url or path to a logo to put in the header
+#   [params.footer]
+    # text = "By Olivier Roques"
+    # url = "https://github.com/ojroques/hugo-researcher"
+#   [params.style]  # appearance options (can be omitted)
+#     fontFamily = "Inconsolata"
+#     pageWidth = "750px"
+#     avatarSize = "90px"
+#     colorBlack = "#222222"
+#     colorRed = "#dc3545"
+  [[params.socialIcons]]
+    icon = "fab fa-twitter"
+    title = "Twitter"
+    url = "https://twitter.com/edupichler"
+  [[params.socialIcons]]
+    icon = "fas fa-envelope"
+    title = "E-mail"
+    url = "mailto:edupichler@blumenau.anonaddy.com"
+
 [deployment]
 # By default, files are uploaded in an arbitrary order.
 # Files that match the regular expressions in the "Order" list
