@@ -2,7 +2,7 @@
 	path = themes/researcher
 	url = https://github.com/ojroques/hugo-researcher.git
 [submodule "hugo-theme-console"]
-	path = hugo-theme-console
+	path = themes/hugo-theme-console
 	url = https://github.com/mrmierzejewski/hugo-theme-console.git
 [submodule "themes/hugonews"]
 	path = themes/hugonews
