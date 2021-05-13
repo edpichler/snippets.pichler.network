@@ -1,7 +1,7 @@
 ---
 title: "Eduardo Ivan Pichler"
 
-date: 2021-05-13T18:56:45+02:00
+date: 2021-05-13T18:56:45+02:01
 draft: false
 ---
 **Software Engineer and Entrepreneur**
