@@ -4,7 +4,7 @@ title: "Eduardo Ivan Pichler"
 date: 2021-05-13T18:56:45+02:01
 draft: false
 ---
-## Software Engineer and entrepreneur
+## Software Engineer and Entrepreneur
 
 I have more than a decade of experience in the software industry. I have designed and worked in on all phases of the development cycle, requirements, design, construction, quality assurance, working on the construction of new products and also maintaining established ones. I have done it for several platforms, like desktop, web, hardware integration and mainframes. I worked for companies and also co-founded my own. I love technology, automation, and entrepreneurship.
   
