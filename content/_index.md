@@ -18,5 +18,5 @@ Besides work, I like sports (surfing, snowboarding and swimming), books, movies,
  * [Docker](https://www.docker.com/community/open-source), [Swarm](https://github.com/docker/swarmkit) and [Kubernetes](https://kubernetes.io)
  * [Apache Kafka](https://kafka.apache.org/) 
  * Apache Avro
- * Splunk
- * Datadog
+ <!-- * Splunk
+ * Datadog -->
