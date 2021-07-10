@@ -13,10 +13,10 @@ My specialty is software, and having working as CTO in the companies I co-founde
 Besides work, I like sports (surfing, snowboarding and swimming), books, movies, photography, nature, travel and, foremost, staying with family and friends.
 
 ## What I have been using
- * [Kotlin](https://kotlinlang.org) is currently my language of choice. It's *Java on steroids*.
+I will not list hundreds of acronymns just because I have used but I want to mention some I have liked to work with: 
+ * [Kotlin](https://kotlinlang.org) is currently my language of choice. It's *Java on steroids*. *(I also like other languages)*
  * [Spring Framework](https://spring.io/)
- * [Docker](https://www.docker.com/community/open-source), [Swarm](https://github.com/docker/swarmkit) and [Kubernetes](https://kubernetes.io)
- * [Apache Kafka](https://kafka.apache.org/) 
- * Apache Avro
- * Splunk
- * Datadog
+ * [Docker](https://www.docker.com/community/open-source), [Swarm](https://github.com/docker/swarmkit) and [Kubernetes](https://kubernetes.io). Containerization is the new virtualization and I got hooked even before it was cool.
+ * [Apache Kafka](https://kafka.apache.org/): Because streams > queues.
+ * Nginx + Certbot (to proxy everything to my docker cluster and making the stack hibrid, cloud agnostic and having encrypted communication).
+ * Apache Avro. In case JSON is to slow you can serialize to bytes and massively increase the bandwith between your systems and even have a strict schema as a contract. I missed a lib like this in 2008.
