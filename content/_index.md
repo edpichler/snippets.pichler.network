@@ -19,4 +19,4 @@ I will not list a lot acronymns here just because I have used but I want to ment
  * [Docker](https://www.docker.com/community/open-source), [Swarm](https://github.com/docker/swarmkit) and [Kubernetes](https://kubernetes.io). Containerization is the new virtualization and I got hooked even before it was cool.
  * [Apache Kafka](https://kafka.apache.org/): Because streams > queues.
  * Nginx + Certbot (to proxy everything to my docker cluster and making the stack hibrid, cloud agnostic and having encrypted communication).
- * Apache Avro. In case JSON is to slow you can serialize to bytes and massively increase the bandwith between your systems and even have a strict schema as a contract. I missed a lib like this in 2008.
+ * Apache Avro. In case JSON is *expensive* you can serialize to raw bytes and massively increase the bandwith between your systems and still count with a strict schema as a contract. I missed a lib like this in 2009.
