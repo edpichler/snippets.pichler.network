@@ -1,4 +1,4 @@
-name: pichler.network CI/CD
+name: snippets.pichler.network CI/CD
 on: [push]
 jobs:
   publish_on_production:
