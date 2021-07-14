@@ -1,7 +1,7 @@
 baseURL = "https://snippets.pichler.network/"
 languageCode = "en"
 title = "Snippets"
-theme = "book"
+theme = "book" #https://themes.gohugo.io/themes/hugo-book/
 
 [params]
   author = "Eduardo Ivan Pichler"
@@ -25,6 +25,14 @@ theme = "book"
   #   icon = "fas fa-envelope"
   #   title = "E-mail"
   #   url = "mailto:edupichler@blumenau.anonaddy.com"
+  
+  # Set source repository location.
+  # Used for 'Last Modified' and 'Edit this page' links.
+  BookRepo = 'https://github.com/edpichler/snippets.pichler.network'
+  
+  # (Optional, default docs) Specify section of content to render as menu
+  # You can also set value to "*" to render all sections to menu
+  BookSection = 'docs'
 
 [deployment]
 # By default, files are uploaded in an arbitrary order.
@@ -101,4 +109,7 @@ gzip = true
 # Always put it on the top of the configuration file, otherwise it won't work
 googleAnalytics = "G-T66GW5FE6E"
 
+# (Optional) Set this to true to enable 'Last Modified by' date and git author
+#  information on 'doc' type pages.
 enableGitInfo = true
+
