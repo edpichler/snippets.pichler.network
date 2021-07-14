@@ -8,3 +8,10 @@ weight: 1
 # bookComments: false
 # bookSearchExclude: false
 ---
+# Splunk snippets collection 
+## Search in Splunk with table and regex
+```bash
+index=*  sourcetype=*  "*Failed to*" 
+| rex ".*Failed to(?<groupName1>.{10})(?<groupName2>.{10}).*" 
+| table timestamp, groupName1, groupName2, message
+```
