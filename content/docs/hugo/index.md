@@ -15,5 +15,5 @@ I like Hugo because it's made with [Golang](https://golang.org/) and, of course,
 ## Start a local server
 `hugo server -D`
 
-## 
+## Create a post
 `hugo new posts/my-first-post.md`
