@@ -13,7 +13,11 @@ weight: 1
 I like Hugo because it's made with [Golang](https://golang.org/) and, of course, its simplicity.
 
 ## Start a local server
-`hugo server -D`
+```bash
+hugo server -D
+```
 
 ## Create a post
-`hugo new posts/my-first-post.md`
+```bash
+hugo new posts/my-first-post.md
+```
