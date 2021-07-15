@@ -9,7 +9,7 @@ weight: 1
 # bookSearchExclude: false
 ---
 # Splunk snippets collection 
-## Search in Splunk with table and regex
+## Searching in Splunk with table and regex
 ```bash
 index=*  sourcetype=*  "*Failed to*" 
 | rex ".*Failed to(?<groupName1>.{10})(?<groupName2>.{10}).*" 
