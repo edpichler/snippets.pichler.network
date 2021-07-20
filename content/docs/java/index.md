@@ -17,3 +17,7 @@ If you want something even better than Java, we have Kotlin. -->
 ## AWT and Swing drag and drop in Java
 
 <script src="https://gist.github.com/edpichler/840867.js"></script>
+
+## Masking sensitive data in JSON usirg regex
+
+<script src="https://gist.github.com/edpichler/8fad05f84236fece4bf0b7837fc29182.js"></script>
