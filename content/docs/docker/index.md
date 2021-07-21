@@ -9,14 +9,20 @@ weight: 1
 # bookSearchExclude: false
 ---
 # Docker is awesome
-Because of many reasons. But there is something in containerization and virtualization that attracts me very much. I think it's the ultimate separation of concerns, the break down of complexity and declouping of system components. 
+There is something in containerization and virtualization that attracts me very much. I think it's the ultimate separation of concerns, the break down of complexity and declouping of system components. 
 
-## List all containers:
+## Running a container exposing a port:
+Exposes the container 80 port as a local/host 8080:
+ ```bash
+ docker run -p 8080:80 edpichler/nginx
+ ```
+
+## Listeing all containers:
  ```bash
  docker ps -a
  ```
 
-## Delete forcevily all the containers:
+## Deleting forcevily all the containers:
  ```bash
  docker rm -f $(docker ps -a -q)
  ```
