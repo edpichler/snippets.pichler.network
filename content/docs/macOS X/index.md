@@ -20,3 +20,16 @@ alias j9="export JAVA_HOME=`/usr/libexec/java_home -v 9`; java -version"
 alias j8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
 alias j7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7`; java -version"
 ```
+
+## Generating self-signed SSL certificates to be used in Nginx
+The same command works on [Linux](../linux/).
+
+``` bash
+openssl req -x509 -nodes -days 36500 -newkey rsa:2048  \ 
+  -keyout private-selfsigned.key -out public-selfsigned.crt
+```
+
+## Discover the IPs that are being resolved for a domain
+``` bash
+nslookup google.se
+```
