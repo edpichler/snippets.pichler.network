@@ -17,6 +17,12 @@ Exposes the container 80 port as a local/host 8080:
  docker run -p 8080:80 edpichler/nginx
  ```
 
+ ## Entering inside a running docker container
+
+ ``` bash
+    docker exec -it e4383e55958d /bin/bash
+ ```
+
 ## Listeing all containers:
  ```bash
  docker ps -a
