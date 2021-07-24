@@ -20,7 +20,7 @@ Exposes the container 80 port as a local/host 8080:
 ## Listeing all containers:
  ```bash
  docker ps -a
- ```
+ ``` 
 
 ## Deleting forcevily all the containers:
  ```bash
