@@ -8,7 +8,7 @@ weight: 1
 # bookComments: false
 # bookSearchExclude: false
 ---
-## Check if a website contains a text
+## Check if a website contains a text using cURL
 ``` bash
 if curl -L -s --compressed https://snippets.pichler.network  | grep 'docker'; \
     then echo "Website is up."; \
