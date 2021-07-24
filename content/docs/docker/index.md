@@ -26,3 +26,9 @@ Exposes the container 80 port as a local/host 8080:
  ```bash
  docker rm -f $(docker ps -a -q)
  ```
+
+## Deleting all images that are not being used by running containers
+The additional filter is to do not delete recently downloaded images.
+```bash
+docker image prune -a --filter "until=24h"
+```
