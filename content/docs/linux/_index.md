@@ -16,3 +16,15 @@ The same command works on [macOS X](../macOS+X/).
 openssl req -x509 -nodes -days 36500 -newkey rsa:2048 \
  -keyout private-selfsigned.key -out public-selfsigned.crt
 ```
+
+## Automatically confirming a command in Linux
+
+``` bash
+yes | ./script
+```
+
+In crontab you can do something like:
+
+``` bash
+@monthly yes | ./script
+```
