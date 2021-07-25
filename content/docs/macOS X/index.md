@@ -33,3 +33,17 @@ openssl req -x509 -nodes -days 36500 -newkey rsa:2048  \
 ``` bash
 nslookup google.se
 ```
+
+## Creating PRs to upgrade a version
+Let's take Opera as an exapmle. 
+The Opera's [tap is here](https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/opera.rb).
+
+For brew casks:
+``` bash
+brew bump-cask-pr opera --version 77.0.4054.276
+```
+
+For regular formulas:
+``` bash
+brew bump-formule-pr  ...
+```
