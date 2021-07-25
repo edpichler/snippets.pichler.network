@@ -28,3 +28,8 @@ In crontab you can do something like:
 ``` bash
 @monthly yes | ./script
 ```
+
+## Discovering a sha256 of a file using openssl:
+```bash
+openssl sha256 OperaSetup.zip
+```
