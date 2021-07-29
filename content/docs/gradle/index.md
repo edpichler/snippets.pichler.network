@@ -28,3 +28,8 @@ docker run --rm -u gradle -v "$PWD":/home/gradle/project \
 docker run --rm -u gradle -v "$PWD":/home/gradle/project \
   -w /home/gradle/project gradle:7-jdk16 gradle test
 ```
+
+## How to make the gradle test runner fail fast
+``` bash
+./gradlew test --fail-fast
+```
