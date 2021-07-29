@@ -9,7 +9,7 @@ weight: 1
 # bookSearchExclude: false
 ---
 # Docker is awesome
-There is something in containerization and virtualization that attracts me very much. I think it's the ultimate separation of concerns, the break down of complexity and declouping of system components. 
+Damn it, I love docker. There is something in containerization and virtualization that attracts me very much. I think it's the ultimate separation of concerns, the break down of complexity and declouping of system components. I can create my sandboxes of my small environments/worlds and destroy it later easily if I want to.
 
 ## Running a container exposing a port:
 Exposes the container 80 port as a local/host 8080:
