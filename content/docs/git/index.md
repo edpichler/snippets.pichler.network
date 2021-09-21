@@ -7,6 +7,56 @@ weight: 1
 # bookCollapseSection: false
 # bookComments: false
 # bookSearchExclude: false
-# Git is awesome
-# How much colaboration is now possible just because of this simple open source tool? We can collaborate even offline, syncing the work only later when we get back to the network.  -->
 ---
+# Git
+
+I consider git on of the most important software ever created. It enabled people to work geographically distributed even without internet connection, with automated backups (every repo is potentially a repository backup). Because of git, software could evolve faster than ever.
+
+
+## git-rypt
+Git crypt is just awesome. **Not perfect**, but awesome. It is very useful, despite of its limitation.
+
+### Before starting it
+
+Make sure you have the public gpg key installed:
+``` bash
+# List gpg keys
+gpg --list-keys 
+
+# List gpg secret keys
+gpg --list-secret-keys 
+
+```
+
+### Importing keybase keys to gpg
+``` bash
+# import keybase keys to gpg
+keybase pgp export | gpg --import
+
+# import private keys to gpg
+keybase pgp export -s | gpg --allow-secret-key-import --import
+
+```
+
+### Encrypting a git repository folder
+
+``` bash
+#initiate it
+git-crypt init
+
+#add the public key of the user
+git-crypt add-gpg-user 5A3700C672440657ACF09DEFB146A056E9BACD36
+```
+
+Configuring the secret files: 
+
+In the `.gitattributes` file you must do: 
+
+``` text
+# Example 
+secretfile filter=git-crypt diff=git-crypt
+*.key filter=git-crypt diff=git-crypt
+secretdir/** filter=git-crypt diff=git-crypt
+
+src/main/resources/*.yml filter=git-crypt diff=git-crypt
+```
