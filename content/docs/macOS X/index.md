@@ -46,3 +46,30 @@ And for regular formulas:
 ``` bash
 brew bump-formula-pr  ...
 ```
+
+## Creating permanent aliases
+Create a file like ~/.bash_aliases
+``` bash
+cd; touch .bash_aliases
+```
+Add alias on it;
+``` bash
+echo "myalias=\"ls\"" >> .bash_aliases
+```
+
+Reference the alias in your bash profile by adding the follow lines.
+``` bash
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+else 
+  touch .bash_aliases;
+  echo alias=myalias >> .bash_aliases;
+fi
+```
+
+``` bash
+alias j11='export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home; java -version'
+alias j16='export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-16.0.2.jdk/Contents/Home; java -version'
+alias startDependenciesj11='cd ~/Documents/git/bucket-service-monthly/; j11; ./gradlew startDependencies;'
+
+```
