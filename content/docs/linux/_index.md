@@ -29,7 +29,7 @@ In crontab you can do something like:
 @monthly yes | ./script
 ```
 
-## Discovering a sha256 of a file using openssl:
+## Discovering the sha256 of a file using openssl:
 ```bash
 openssl sha256 OperaSetup.zip
 ```
