@@ -12,9 +12,20 @@ weight: 1
 
 I consider git on of the most important software ever created. It enabled people to work geographically distributed even without internet connection, with automated backups (every repo is potentially a repository backup). Because of git, software could evolve faster than ever.
 
+## To update the local list (cache) of remote branches
 
-## git-rypt
-Git crypt is just awesome. **Not perfect**, but awesome. It is very useful, despite of its limitation.
+``` bash
+# To show all local and remote branches that (local) Git knows about:
+git branch -a
+# And to update it:
+git remote update origin --prune
+# Now you can see everything up to date with the origin
+git branch -a
+
+```
+
+## git-crypt
+Git crypt is just awesome. **Not perfect**, but awesome. It is very useful, despite of its limitations.
 
 ### Before starting it
 
