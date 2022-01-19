@@ -17,4 +17,4 @@ CREATE USER 'myUser'@'%' IDENTIFIED BY 'myUser';
 
 -- The % bellow is the wildcard to accept connection from the client of any host in the network
 grant all privileges on mySchema.* to 'myUser'@'%' identified by 'myUser'; 
-````
+```
