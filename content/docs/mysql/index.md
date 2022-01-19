@@ -8,3 +8,13 @@ weight: 1
 # bookComments: false
 # bookSearchExclude: false
 ---
+## Creating a schema and giving an user network access
+``` SQL
+
+create schema mySchema; 
+
+CREATE USER 'myUser@'%' IDENTIFIED BY 'myUser';
+
+-- The % bellow is the wildcard to accept connection from the client of any host in the network
+grant all privileges on mySchema.* to 'myUser'@'%' identified by 'myUser'; 
+```
