@@ -1,5 +1,5 @@
 ---
-title: "Mysql"
+title: "MySQL"
 weight: 1
 # bookFlatSection: false
 # bookToc: true
@@ -13,8 +13,8 @@ weight: 1
 
 create schema mySchema; 
 
-CREATE USER 'myUser@'%' IDENTIFIED BY 'myUser';
+CREATE USER 'myUser'@'%' IDENTIFIED BY 'myUser';
 
 -- The % bellow is the wildcard to accept connection from the client of any host in the network
 grant all privileges on mySchema.* to 'myUser'@'%' identified by 'myUser'; 
-```
+````
