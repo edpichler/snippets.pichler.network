@@ -71,3 +71,7 @@ secretdir/** filter=git-crypt diff=git-crypt
 
 src/main/resources/*.yml filter=git-crypt diff=git-crypt
 ```
+### Show encrypted files
+ ``` bash
+ git-crypt status -e
+ ```

@@ -49,6 +49,12 @@ gpg --list-secret-keys
 gpg --list-keys
 ```
 
+### Export GPG keys
+ ``` bash
+gpg --output private-key.pgp --armor --export-secret-key  6D934E6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
+gpg --output public-key.pgp --armor --export  6349BE6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
+```
+
 ### Delete private and public keys
 ```bash
 gpg --delete-secret-key "User Name"

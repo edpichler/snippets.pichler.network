@@ -34,7 +34,11 @@ Exposes the container 80 port as a local/host 8080:
  ```
 
 ## Deleting all images that are not being used by running containers
-The additional filter is to do not delete recently downloaded images.
+The additional filter is to do not delete images downloaded less than 2 days ago.
 ```bash
-docker image prune -a --filter "until=24h"
+ docker system prune -a --filter "until=$((2*24))h"
+```
+If you want to add on crontab, the -f flag will just prevent of the confirmation prompt be showed during the cron job running:
+```bash
+ docker system prune -af --filter "until=$((2*24))h"
 ```
