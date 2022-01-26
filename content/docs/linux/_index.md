@@ -50,9 +50,14 @@ gpg --list-keys
 ```
 
 ### Export GPG keys
- ``` bash
+ ```bash
 gpg --output private-key.pgp --armor --export-secret-key  6D934E6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
 gpg --output public-key.pgp --armor --export  6349BE6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
+```
+Or, export a key `base64`, and copy it to the clipboard:
+
+```bash
+gpg --export-secret-key 6D9BE6918FF79E0EE82CA93BF6F8A234DDC0A44D  > mykey.txt; cat otrust.txt | pbcopy; rm mykey.txt
 ```
 
 ### Delete private and public keys
@@ -60,3 +65,41 @@ gpg --output public-key.pgp --armor --export  6349BE6918FF79E0EE82CA93BF6F8ADD7D
 gpg --delete-secret-key "User Name"
 gpg --delete-key "User Name"
 ```
+
+## Finding things in Linux
+### The `locate` command
+
+This command will go through your entire filesystem and locate every occurrence of that keyword.
+
+``` bash
+locate keyword
+```
+the `locate` uses a database that is usually updated once a day. If you don't find your file you can update the database manually and try again.
+
+``` bash
+ updatedb
+ locate keyword
+```
+
+### The `which` command
+The which command locates an a binary in your PATH. If it doesn’t find the binary in the current PATH, it returns nothing.
+``` bash 
+which java
+```
+
+### The find command
+
+You can search in any designated directory and use a variety of parameters.
+``` bash
+find directory options expression
+```
+``` bash
+find / -type f -name test.txt
+```
+It also accept wildcards
+``` bash
+find /home -type f -name test.*
+```
+- `*` matches multiple characters *at would match: cat, hat, what, and bat.
+- `?` matches a single character ?at would match cat, hat, bat but not what.
+- `[]` matches character that appear inside the square brackets [c,b] would match cat and bat
