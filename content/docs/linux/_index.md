@@ -97,8 +97,8 @@ find directory options expression
 find / -type f -name test.txt
 ```
 It also accept wildcards
-``` bash
-find /home -type f -name test.*
+``` sh
+find /home -type f -name "test.*"
 ```
 - `*` matches multiple characters *at would match: cat, hat, what, and bat.
 - `?` matches a single character ?at would match cat, hat, bat but not what.
