@@ -12,9 +12,9 @@ googleAnalytics = "G-T66GW5FE6E"
   description = "Sofware Engineer in Stockholm"
 #   favicon = "favicon.ico"  # path to a .ico to use as favicon
 #   logo = ""  # url or path to a logo to put in the header
-#   [params.footer]
-    # text = "By Olivier Roques"
-    # url = "https://github.com/ojroques/hugo-researcher"
+  [params.footer]
+    text = "By Edurdo Ivan Pichler"
+    url = "https://github.com/edpichler"
 #   [params.style]  # appearance options (can be omitted)
 #     fontFamily = "Inconsolata"
 #     pageWidth = "750px"
