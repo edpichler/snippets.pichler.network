@@ -100,6 +100,11 @@ It also accept wildcards
 ``` sh
 find /home -type f -name "test.*"
 ```
+Find it by name and file size less than 5 kb
+```sh
+find . -type f  -size -5k  -name "*.txt"
+```
+
 - `*` matches multiple characters *at would match: cat, hat, what, and bat.
 - `?` matches a single character ?at would match cat, hat, bat but not what.
 - `[]` matches character that appear inside the square brackets [c,b] would match cat and bat
