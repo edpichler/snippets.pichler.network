@@ -108,3 +108,22 @@ find . -type f  -size -5k  -name "*.txt"
 - `*` matches multiple characters *at would match: cat, hat, what, and bat.
 - `?` matches a single character ?at would match cat, hat, bat but not what.
 - `[]` matches character that appear inside the square brackets [c,b] would match cat and bat
+
+## Configuring the Linux swap
+
+``` bash
+sudo fallocate -l 4G /swapfile1
+sudo chmod 600 /swapfile1
+sudo mkswap /swapfile1
+
+#Only if you want to make the swap persist after a reboot
+sudo echo "/swapfile1   none    swap    sw    0   0" >>  /etc/fstab
+sudo echo "vm.swappiness=10" >> /etc/sysctl.conf
+sudo echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
+
+# turn on the swap
+sudo swapon /swapfile1
+
+# optional, check if it's working
+htop
+```
