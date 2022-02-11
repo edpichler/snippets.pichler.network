@@ -12,6 +12,8 @@ weight: 1
 Once you have several java versions installed, you can configure your `.bash_profile` to have the following lines:
 
 ``` bash
+alias j19="export JAVA_HOME=`/usr/libexec/java_home -v 19`;  java -version"
+alias j17="export JAVA_HOME=`/usr/libexec/java_home -v 17`;  java -version"
 alias j16="export JAVA_HOME=`/usr/libexec/java_home -v 16`;  java -version"
 alias j12="export JAVA_HOME=`/usr/libexec/java_home -v 12`;  java -version"
 alias j11="export JAVA_HOME=`/usr/libexec/java_home -v 11`;  java -version"
