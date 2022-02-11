@@ -6,4 +6,4 @@ draft: false
 ---
 # Snippets are cool
 
-This is my collection of snippets. If you have something cool to add here, [create a pull request here](https://github.com/edpichler/snippets.pichler.network/tree/develop/content) and [ping me](https://twitter.com/EduPichler) in case I don't see the notification.
+This is my collection of snippets. If you have something cool to add here, [create a pull request here](https://github.dev/edpichler/snippets.pichler.network/tree/develop/content) and [ping me](https://twitter.com/EduPichler) in case I don't see the notification.
