@@ -24,14 +24,14 @@ Example when in a docker compose file:
     command:
      - --bind-address=0.0.0.0
     environment:
-      MYSQL_DATABASE: easypnr_dev
-      MYSQL_PASSWORD: easypnr_dev
-      MYSQL_ROOT_PASSWORD: aoeu1212
-      MYSQL_USER: easypnr_dev
+      MYSQL_DATABASE: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_USER: mysql
     ports:
      - 3306:3306
     volumes:
-     - mysql-data-easypnr-dev:/var/lib/mysql
+     - mysql-data:/var/lib/mysql
 ```
 Or, you can add the `bind-address=0.0.0.0` in the `/etc/mysql/my.cnf` file and restart the server.
 
@@ -61,8 +61,19 @@ grant all privileges on mySchema.* to 'myUser'@'%'';
 ```
 
 ## Backing up the mysql database
+Just one table:
 ``` ssh
-mysqldump -u user -ppassword -h 127.0.0.1 -P 3306 --skip-mysql-schema my_database MY_TABLE > dump.sql
+mysqldump -u user -ppassword -h 127.0.0.1 -P 3306 --skip-mysql-schema my_db MY_TABLE > dump.sql
+```
+
+Just the schema and ignoring one table:
+``` ssh
+mysqldump -u user -ppassword  -h 127.0.0.1 -P 3306 --ignore-table my_db.table1 --no-data my_db > nodata.sql
+```
+
+Skipping the schema and ignoring two tables:
+``` ssh
+ mysqldump -u user -ppassword  -h 127.0.0.1 -P 3306 --skip-mysql-schema --ignore-table my_db.table1 --ignore-table my_db.table2 my_db > smallertables.sql
 ```
 
 ## Execute a script
