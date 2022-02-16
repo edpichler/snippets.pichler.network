@@ -80,3 +80,14 @@ src/main/resources/*.yml filter=git-crypt diff=git-crypt
  ``` bash
  git commit --amend --author="Eduardo Ivan Pichler <eduardo.pichler@myemail.com>" --no-edit
  ```
+
+ ## Changing the Author for global and local repositories
+ ``` bash
+git config --global user.name "Eduardo Ivan Pichler"
+git config --global user.email "eduardo.pichler@myemail.com"
+ ```
+ Or: 
+  ``` bash
+git config --local user.name "Eduardo Ivan Pichler"
+git config --local user.email "eduardo.pichler@myemail.com"
+ ```
