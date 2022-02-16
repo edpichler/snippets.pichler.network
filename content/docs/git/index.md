@@ -75,3 +75,8 @@ src/main/resources/*.yml filter=git-crypt diff=git-crypt
  ``` bash
  git-crypt status -e
  ```
+
+ ## Change the author of the last commit
+ ``` bash
+ git commit --amend --author="Eduardo Ivan Pichler <eduardo.pichler@myemail.com>" --no-edit
+ ```
