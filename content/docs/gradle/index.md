@@ -34,6 +34,11 @@ docker run --rm -u gradle -v "$PWD":/home/gradle/project \
 ./gradlew test --fail-fast
 ```
 
+## Skipping tests (or any other task)
+``` bash
+./gradlew build -x test
+```
+
 ## Filtering tests in gradle
 ``` bash
  ./gradle test --tests "*SubscriptionTest*"
