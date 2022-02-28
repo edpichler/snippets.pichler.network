@@ -83,7 +83,7 @@ Also when you want to import the mysqldump file.
 mysql -u user -ppassword my_database -h 127.0.0.1 -P 3606 < dump.sql
 ```
 
-## Maintenance
+## Maintenance commands
 
 ### Delete logs to increase space
 
