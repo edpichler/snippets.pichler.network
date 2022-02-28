@@ -88,7 +88,7 @@ mysql -u user -ppassword my_database -h 127.0.0.1 -P 3606 < dump.sql
 ### Delete logs to increase space
 
 MySQL keeps some logs for doing its business, to delete it you do:
-``` bash
+``` mysql
 RESET MASTER; 
 --or, if the instance is a slave
 RESET SLAVE;
@@ -97,7 +97,7 @@ RESET SLAVE;
 ### Optimize the space shrinking tables
 
 The MySQL does not create space when you delete data. For claiming up the space, you need to do:
-``` bash
+``` mysql
 OPTIMIZE TABLE MY_TABLE;
 ```
 For doing it you have to have some space in the machine. Internally, it will create a new file more optimized for the table, and then delete the old one.
