@@ -90,7 +90,7 @@ mysql -u user -ppassword my_database -h 127.0.0.1 -P 3606 < dump.sql
 MySQL keeps some logs for doing its business, to delete it you do:
 ``` mysql
 RESET MASTER; 
---or, if the instance is a slave
+-- or, if the instance is a slave
 RESET SLAVE;
 ```
 
