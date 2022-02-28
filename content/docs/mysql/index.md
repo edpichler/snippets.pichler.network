@@ -62,23 +62,42 @@ grant all privileges on mySchema.* to 'myUser'@'%'';
 
 ## Backing up the mysql database
 Just one table:
-``` ssh
+``` bash
 mysqldump -u user -ppassword -h 127.0.0.1 -P 3306 --skip-mysql-schema my_db MY_TABLE > dump.sql
 ```
 
 Just the schema and ignoring one table:
-``` ssh
+``` bash
 mysqldump -u user -ppassword  -h 127.0.0.1 -P 3306 --ignore-table my_db.table1 --no-data my_db > nodata.sql
 ```
 
 Skipping the schema and ignoring two tables:
-``` ssh
+``` bash
  mysqldump -u user -ppassword  -h 127.0.0.1 -P 3306 --skip-mysql-schema --ignore-table my_db.table1 --ignore-table my_db.table2 my_db > smallertables.sql
 ```
 
 ## Execute a script
 Also when you want to import the mysqldump file.
 
-``` ssh
+``` bash
 mysql -u user -ppassword my_database -h 127.0.0.1 -P 3606 < dump.sql
 ```
+
+## Maintenance
+
+### Delete logs to increase space
+
+MySQL keeps some logs for doing its business, to delete it you do:
+``` bash
+RESET MASTER; 
+--or, if the instance is a slave
+RESET SLAVE;
+```
+
+### Optimize the space shrinking tables
+
+The MySQL does not create space when you delete data. For claiming up the space, you need to do:
+``` bash
+OPTIMIZE TABLE MY_TABLE;
+```
+For doing it you have to have some space in the machine. Internally, it will create a new file more optimized for the table, and then delete the old one.
