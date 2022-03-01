@@ -127,3 +127,8 @@ sudo swapon /swapfile1
 # optional, check if it's working
 htop
 ```
+
+## To count the number of files in a linux folder
+``` bash
+find . -type f | wc -l
+```
