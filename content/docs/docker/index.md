@@ -42,3 +42,15 @@ If you want to add on crontab, the -f flag will just prevent of the confirmation
 ```bash
  docker system prune -af --filter "until=$((2*24))h"
 ```
+
+# Docker Swarm
+
+## Make a node inactive/active
+It will stops imediatelly all running containers in that node. They will be balanced to other nodes, though (if its configuration allows it).
+
+``` bash 
+docker node ls
+docker node update --availability drain 15wkcqw42fjzb1aqoavyfkk13
+docker node update --availability active 15wkcqw42fjzb1aqoavyfkk13
+```
+
