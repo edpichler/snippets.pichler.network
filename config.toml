@@ -1,3 +1,6 @@
+# https://themes.gohugo.io/themes/hugo-book/#configuration
+googleAnalytics = "G-T66GW5FE6E"
+
 baseURL = "https://snippets.pichler.network/"
 languageCode = "en"
 title = "Snippets"
