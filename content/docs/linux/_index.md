@@ -109,6 +109,16 @@ find . -type f  -size -5k  -name "*.txt"
 - `?` matches a single character ?at would match cat, hat, bat but not what.
 - `[]` matches character that appear inside the square brackets [c,b] would match cat and bat
 
+### Find content inside files using grep
+
+``` bash
+ cat mylogs.log | grep --line-buffered 'content I want'
+```
+In case you don't have the `--line-buffered` option: 
+``` bash
+ cat mylogs.log | stdbuf -oL grep 'content I want'
+```
+
 ## Configuring the Linux swap
 
 ``` bash
@@ -132,3 +142,4 @@ htop
 ``` bash
 find . -type f | wc -l
 ```
+
