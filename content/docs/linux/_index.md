@@ -143,3 +143,9 @@ htop
 find . -type f | wc -l
 ```
 
+## Execute a command in loop in shell/bash on Linux
+```bash 
+for i in {1..10}; do
+	echo "Hello Friend"
+done
+```
