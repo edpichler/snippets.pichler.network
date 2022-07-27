@@ -92,7 +92,7 @@ git config --local user.name "Eduardo Ivan Pichler"
 git config --local user.email "eduardo.pichler@myemail.com"
  ```
 
-## Git Patch
+## git patch
 To generate a patch from the last 10 commits:
 ```
 git format-patch -10 --stdout > patch-ddmmyyy.patch
