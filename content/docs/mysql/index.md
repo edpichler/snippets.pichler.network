@@ -101,3 +101,15 @@ The MySQL does not create space when you delete data. For claiming up the space,
 OPTIMIZE TABLE MY_TABLE;
 ```
 For doing it you have to have some space in the machine. Internally, it will create a new file more optimized for the table, and then delete the old one.
+
+## SQL Snippets
+
+### Incremental updates
+
+``` SQL
+WITH my_table 
+ AS (select id from REQUESTS where session_id is null LIMIT 100 FOR UPDATE SKIP LOCKED)
+UPDATE REQUESTS SET
+	REQUESTS.session_id = SUBSTRING(SHA(CONCAT(CONCAT(IFNULL(REQUESTS.column_1, ''), IFNULL(REQUESTS.column_2, ''), IFNULL(REQUESTS.column_2, '')))), 25)
+where REQUESTS.id IN (select my.id FROM my);  
+```
