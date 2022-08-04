@@ -54,3 +54,17 @@ docker node update --availability drain 15wkcqw42fjzb1aqoavyfkk13
 docker node update --availability active 15wkcqw42fjzb1aqoavyfkk13
 ```
 
+## Update a service
+
+```bash 
+docker service list
+
+docker service update --force myservice-api --image myname/myimage:latest --update-order start-first --update-failure-action rollback --with-registry-auth  --replicas 1 --env-add FLYWAY_MIGRATE="false"
+```
+
+## Kill a service
+``` bash
+docker service list
+
+docker service update --force myservice-api --replicas 0 
+```
