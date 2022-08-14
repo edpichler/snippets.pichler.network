@@ -149,3 +149,15 @@ for i in {1..10}; do
 	echo "Hello Friend"
 done
 ```
+
+## SSH
+
+### Authorizing a public key to connect into your server using ssh
+Just add the public key in .ssh/authorized_keys and refresh the ssh settings:
+ 
+ ``` 
+ sudo echo "my long key content.." >> ~/.ssh/authorized_keys
+ 
+ service sshd reload
+ ```
+ Or use the command `ssh-copy-id` from the client.
