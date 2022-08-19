@@ -49,3 +49,5 @@ Choosing streams from multiple inputs. All video from input 0, all audio from in
 ## Links:
 
  - https://ntown.at/de/knowledgebase/cuda-gpu-accelerated-h264-h265-hevc-video-encoding-with-ffmpeg/
+ - https://trac.ffmpeg.org/wiki/Encode/H.265
+ - https://ieeexplore.ieee.org/document/7946796
