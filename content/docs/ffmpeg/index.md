@@ -1,5 +1,6 @@
 ---
 title: "ffmpeg"
+weight: 1
 
 date: 2022-08-17`T18:56:45+02:01
 draft: false
@@ -7,10 +8,12 @@ draft: false
 # ffmpeg 
 
 ## See video metadata
+
 The `ffprobe` gathers information from multimedia streams and prints it in human- and machine-readable fashion.
 `ffprobe -i video.mkv`
 
 ## Converting a video to HVEC/H.265
+
 Using the CPU:
 `ffmpeg -i input.mov -map_metadata 0 -c:v libx265 -x265-params "lossless=1" output.mp4`
 
@@ -36,7 +39,6 @@ The 3rd video stream, all audio streams, no subtitles. This example uses negativ
 Choosing streams from multiple inputs. All video from input 0, all audio from input 1:
 `ffmpeg -i input0 -i input1 -map 0:v -map 1:a -c copy output`
 
-## 
-
 # Some links:
+
  - https://ntown.at/de/knowledgebase/cuda-gpu-accelerated-h264-h265-hevc-video-encoding-with-ffmpeg/
