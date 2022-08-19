@@ -39,6 +39,6 @@ The 3rd video stream, all audio streams, no subtitles. This example uses negativ
 Choosing streams from multiple inputs. All video from input 0, all audio from input 1:
 `ffmpeg -i input0 -i input1 -map 0:v -map 1:a -c copy output`
 
-# Some links:
+## Links:
 
  - https://ntown.at/de/knowledgebase/cuda-gpu-accelerated-h264-h265-hevc-video-encoding-with-ffmpeg/
