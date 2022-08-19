@@ -14,7 +14,7 @@ The `ffprobe` gathers information from multimedia streams and prints it in human
 
 ## Converting a video to HVEC/H.265
 
-Using the CPU:
+It´s done by the `-c:v` parameter. To do it using the CPU:
 `ffmpeg -i input.mov -map_metadata 0 -c:v libx265 -x265-params "lossless=1" output.mp4`
 
 Using the GPU (Nvidia):
