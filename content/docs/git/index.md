@@ -31,7 +31,7 @@ To generate a patch from the last 10 commits:
 git format-patch -10 --stdout > patch-ddmmyyy.patch
 ```
 
-### git stash
+## git stash
 
 Everything is stashed in a stack. To reference it you can do `stash@{n}` where n is the offset in the stack.
 
