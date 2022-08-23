@@ -56,14 +56,14 @@ git stash show
 git stash show -p 
 ```
 
-### creating a branch from a stash
+### Creating a branch from a stash
 
 
 ``` bash
 git stash branch add-stylesheet stash@{1}
 ```
 
-#### cleaning up the stash
+#### Cleaning up the stash
 
 ```  bash
 git stash clear 
