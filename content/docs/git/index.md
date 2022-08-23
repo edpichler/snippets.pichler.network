@@ -49,7 +49,7 @@ git stash pop stash@{1}
 # apply the stashed content and does not delete it like pop does
 git stash apply # it's the same as doing git stash apply stash@{0}
 # you can set a description to stashed content
-git stash 
+git stash save "message"
 # you can view a summary of a stash
 git stash show
 # or to show the full diff
