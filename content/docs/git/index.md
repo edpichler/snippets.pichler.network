@@ -23,6 +23,12 @@ git remote update origin --prune
 git branch -a
 
 ```
+ 
+## git patch
+To generate a patch from the last 10 commits:
+``` bash
+git format-patch -10 --stdout > patch-ddmmyyy.patch
+```
 
 ## git-crypt
 Git crypt is just awesome. **Not perfect**, but awesome. It is very useful, despite of its limitations.
@@ -91,9 +97,3 @@ git config --global user.email "eduardo.pichler@myemail.com"
 git config --local user.name "Eduardo Ivan Pichler"
 git config --local user.email "eduardo.pichler@myemail.com"
  ```
-
-## git patch
-To generate a patch from the last 10 commits:
-```
-git format-patch -10 --stdout > patch-ddmmyyy.patch
-```
