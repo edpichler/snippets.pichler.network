@@ -25,9 +25,50 @@ git branch -a
 ```
  
 ## git patch
+
 To generate a patch from the last 10 commits:
 ``` bash
 git format-patch -10 --stdout > patch-ddmmyyy.patch
+```
+
+### git stash
+
+Everything is stashed in a stack. To reference it you can do `stash@{n}` where n is the offset in the stack.
+
+To stash you can do: 
+
+``` bash
+# stashes everything 
+git stash
+# list what is stashed
+git stash list
+# apply the most recent stash and delete it
+git stash pop # it's the same as doing git stash pop stash@{0}
+# apply the second most recent stash and delete it
+git stash pop stash@{1}
+# apply the stashed content and does not delete it like pop does
+git stash apply # it's the same as doing git stash apply stash@{0}
+# you can set a description to stashed content
+git stash 
+# you can view a summary of a stash
+git stash show
+# or to show the full diff
+git stash show -p 
+```
+
+### creating a branch from a stash
+
+
+``` bash
+git stash branch add-stylesheet stash@{1}
+```
+
+#### cleaning up the stash
+
+```  bash
+git stash clear 
+#or 
+git stash drop # it will drop the stash@{0}
 ```
 
 ## git-crypt
