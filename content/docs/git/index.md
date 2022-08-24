@@ -23,6 +23,7 @@ git remote update origin --prune
 git branch -a
 
 ```
+Or you cand do a `git pull --all`  to fetch from origin and update all your local branches.
  
 ## git patch
 
