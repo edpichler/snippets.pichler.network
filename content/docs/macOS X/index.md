@@ -8,6 +8,18 @@ weight: 1
 # bookComments: false
 # bookSearchExclude: false
 ---
+
+## Showing hidden files in Mac OS
+
+Just do  `'Command' + 'Shift' + '.'` 
+
+Or, to make it permantently:
+
+```
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder # restart Finder
+```
+
 ## Switching between different installed Java versions in macOS X
 Once you have several java versions installed, you can configure your `.bash_profile` to have the following lines:
 
