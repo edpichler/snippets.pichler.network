@@ -59,7 +59,12 @@ Or, export a key `base64`, and copy it to the clipboard:
 ```bash
 gpg --export-secret-key 6D9BE6918FF79E0EE82CA93BF6F8A234DDC0A44D  > mykey.txt; cat otrust.txt | pbcopy; rm mykey.txt
 ```
-
+### Change the GPG key password
+```bash
+gpg --edit-key Your-Key-ID-Here
+gpg> passwd
+gpg> save
+```
 ### Delete private and public keys
 ```bash
 gpg --delete-secret-key "User Name"
