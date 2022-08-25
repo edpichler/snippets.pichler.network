@@ -86,7 +86,7 @@ gpg --list-keys
 gpg --list-secret-keys 
 
 ```
-If you don't have you can (generate one with GPG)[/linux/#generate-a-gpg-key-pair].
+If you don't have you can [generate one with GPG](/linux/#generate-a-gpg-key-pair).
 
 ### Importing keybase keys to gpg
 ``` bash
