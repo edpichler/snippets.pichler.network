@@ -66,6 +66,10 @@ gpg --delete-secret-key "User Name"
 gpg --delete-key "User Name"
 ```
 
+### Extra tip
+
+Two softwares to manage GPG keys: https://www.gpg4win.org/ and https://gpgtools.org/.
+
 ## Finding things in Linux
 ### The `locate` command
 
