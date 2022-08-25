@@ -66,7 +66,7 @@ gpg --delete-secret-key "User Name"
 gpg --delete-key "User Name"
 ```
 
-### Extra tip
+### GPG keys managers
 
 Two softwares to manage GPG keys: https://www.gpg4win.org/ and https://gpgtools.org/.
 
