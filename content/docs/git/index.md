@@ -140,3 +140,9 @@ git config --global user.email "eduardo.pichler@myemail.com"
 git config --local user.name "Eduardo Ivan Pichler"
 git config --local user.email "eduardo.pichler@myemail.com"
  ```
+
+## Signing your git commits
+
+Just do `git config commit.gpgsign true` in your repository.
+
+To sign all commits by default in any local repository on your computer, run `git config --global commit.gpgsign true`
