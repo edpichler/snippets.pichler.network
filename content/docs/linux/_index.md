@@ -202,8 +202,12 @@ wide links=yes      #in case you want to share the content of the symlinks that 
 
 ## Find duplicate files in Windows and Linux
 
-**Warning:** by default `rdfind` delete duplicated files. It´s better to create hardlinks instead.
+*Tip*: Sometimes is better to create hardlinks instead of deleting the duplicated files. Hardlinks and symlinks almost does not use space.
 
-It can replace the duplicated files with hard and symbolic links. The flag is `rdfind -makehardlinks true .` I tested and it worked in both, Windows and Linux.
+Generate a list of duplicated files:
 
-If you want to only find duplicates, `fdupes` is also good.
+`rdfind -makeresultsfile true .` or  `fdupes -R .` does the job.
+
+`rfind` can replace the duplicated files with hard and symbolic links. The flag is `rdfind -makehardlinks true .` I tested and it worked in both, Windows and Linux.
+
+And, the flag `-makeresultsfile true` is self explaining. 
