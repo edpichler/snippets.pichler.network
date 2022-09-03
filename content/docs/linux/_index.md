@@ -199,3 +199,11 @@ public=no
 follow symlinks=yes #in case you want to share the content of the symlinks
 wide links=yes      #in case you want to share the content of the symlinks that the destination is outside of the shared folder too
 ``` 
+
+## Find duplicate files in Windows and Linux
+
+**Warning:** by default `rdfind` delete duplicated files. It´s better to create hardlinks instead.
+
+It can replace the duplicated files with hard and symbolic links. The flag is `rdfind -makehardlinks true .` I tested and it worked in both, Windows and Linux.
+
+If you want to only find duplicates, `fdupes` is also good.
