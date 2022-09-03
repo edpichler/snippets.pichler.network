@@ -170,3 +170,11 @@ Just add the public key in .ssh/authorized_keys and refresh the ssh settings:
  service sshd reload
  ```
  Or use the command `ssh-copy-id` from the client.
+
+ ## Rsync
+
+### Copy files and folders, recursively, to another folder
+ 
+``` bash
+rsync -av /home/tin/sample /home/tin/test`
+``` 
