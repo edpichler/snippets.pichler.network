@@ -178,3 +178,24 @@ Just add the public key in .ssh/authorized_keys and refresh the ssh settings:
 ``` bash
 rsync -av /home/tin/sample /home/tin/test`
 ``` 
+
+## Samba
+
+### Sharing a folder with the Windows network protocol:
+
+Edit /etc/samba/smb.conf and add:
+
+```
+[global]
+
+allow insecure wide links = yes  #global configuration to allow sharing the content of any folder where a symlink is pointing to
+
+[some_name]
+path = /media/my_shared_folder
+writeable=Yes
+create mask=0777
+directory mask=0777
+public=no
+follow symlinks=yes #in case you want to share the content of the symlinks
+wide links=yes      #in case you want to share the content of the symlinks that the destination is outside of the shared folder too
+``` 
