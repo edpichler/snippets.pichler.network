@@ -13,6 +13,7 @@ The `ffprobe` gathers information from multimedia streams and prints it in human
 `ffprobe -i video.mkv`
 
 ## Showing the encoder options available
+To get the list of presets:
 
 `ffmpeg -h encoder=hevc_nvenc`
 
@@ -58,12 +59,7 @@ Choosing streams from multiple inputs. All video from input 0, all audio from in
 Run ffmpeg in batch, recursively, making all the output be in the current folder:
 
  ```
- dir -recurse -include *.mp4 |  %{ $newname = $_.Name.Remove($_.Name.Length - $_.Extension.Length) + ".ffmpeg.mkv"; ffmpeg -i "$_" -map 0:v -map 0:a -map -0:s -map_metadata 0 -c:v hevc_nvenc -tune hq $newname}
-```
-
-Run ffmpeg in batch, recursively:
-
-``` dir -recurse -include *.mp4 |  %{ $newname = $_.FullName.Remove($_.FullName.Length - $_.Extension.Length) + ".ffmpeg.mkv"; ffmpeg -i "$_" -map 0:v -map 0:a -map -0:s -map_metadata 0 -c:v hevc_nvenc -tune hq $newname}
+ dir -recurse -include *.mp4 |  %{ $newname = $_.Name.Remove($_.Name.Length - $_.Extension.Length) + ".ffmpeg.p7.hq.mkv"; ffmpeg -i "$_" -map 0:v -map 0:a -map -0:s -map_metadata 0 -c:v hevc_nvenc -tune hq -preset p7 $newname}
 ```
 
 ## Links:
