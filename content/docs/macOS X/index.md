@@ -35,6 +35,16 @@ alias j8="export JAVA_HOME=`/usr/libexec/java_home  -v 1.8`; java -version"
 alias j7="export JAVA_HOME=`/usr/libexec/java_home  -v 1.7`; java -version"
 ```
 
+Or, in case your user does not have many permissions:
+
+``` bash
+alias j8='export  JAVA_HOME="/usr/local/opt/openjdk@8/libexec/openjdk.jdk/Contents/Home"; java -version'
+alias j11='export JAVA_HOME="/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"; java --version'
+alias j17='export JAVA_HOME="/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"; java --version'
+alias j18='export JAVA_HOME="/usr/local/opt/openjdk@18/libexec/openjdk.jdk/Contents/Home"; java --version'
+
+```
+
 ## Generating self-signed SSL certificates to be used in Nginx
 The same command works on [Linux](../linux/).
 
