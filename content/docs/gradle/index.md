@@ -44,3 +44,12 @@ docker run --rm -u gradle -v "$PWD":/home/gradle/project \
  ./gradle test --tests "*SubscriptionTest*"
 
 ```
+
+# Gradle Enterprise
+## Debugging cache operations when using the Gradle Maven Extension
+And also debug to find out why a cache was missed:
+
+```
+mvn clean verify -Dorg.slf4j.simpleLogger.log.gradle.goal.cache=debug  -Dgradle.scan.captureGoalInputFiles=true
+```
+Source: https://docs.gradle.com/enterprise/maven-extension/
