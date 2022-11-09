@@ -90,3 +90,10 @@ else
   echo echo "myalias=\"ls\"" >> .zsh_aliases;
 fi
 ```
+
+## Oh My Zsh
+Show date time in the right side of the window
+
+``` bash
+RPROMPT='%{$fg_bold[blue]%} %D %T % %{$reset_color%}'
+```
