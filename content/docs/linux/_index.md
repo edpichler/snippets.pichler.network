@@ -211,3 +211,17 @@ Generate a list of duplicated files:
 `rfind` can replace the duplicated files with hard and symbolic links. The flag is `rdfind -makehardlinks true .` I tested and it worked in both, Windows and Linux.
 
 And, the flag `-makeresultsfile true` is self explaining. 
+
+## Changing permissions in files and directories
+
+Per example, to change directory permissions:
+
+``` bash
+find [YOURDRIVEPATH] -type d -exec chmod 755 {} \;
+```
+
+To change permissions in files:
+
+``` bash
+find [YOURDRIVEPATH] -type f -exec chmod 644 {} \;
+```
