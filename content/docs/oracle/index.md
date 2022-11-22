@@ -18,6 +18,14 @@ select
 from DUAL
 ```
 
+## Format output in Oracle when you have very long columns 
+
+``` bash
+SQL>  SET linesize 5000
+SQL>  SET tab off
+SQL>  select * from table_with_many_long_columns;
+```
+
 ## Select from a list of static data
 
 This must work in any ANSI compatible database:
