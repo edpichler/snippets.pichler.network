@@ -26,6 +26,13 @@ SQL>  SET tab off
 SQL>  select * from table_with_many_long_columns;
 ```
 
+Another possible way of doing it:
+
+``` bash
+SET WRAP OFF
+SET PAGESIZE 0
+```
+
 ## Select from a list of static data
 
 This must work in any ANSI compatible database:
