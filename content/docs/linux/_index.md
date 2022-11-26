@@ -217,11 +217,17 @@ And, the flag `-makeresultsfile true` is self explaining.
 Per example, to change directory permissions:
 
 ``` bash
-find [YOURDRIVEPATH] -type d -exec chmod 755 {} \;
+find [YOURDRIVEPATH] -type d -exec chmod 2755 {} \;
 ```
 
 To change permissions in files:
 
 ``` bash
-find [YOURDRIVEPATH] -type f -exec chmod 644 {} \;
+find [YOURDRIVEPATH] -type f -exec chmod 0644 {} \;
 ```
+
+The `2755` permission scheme allows the owner to read, write, and execute, the group to read and execute, and others to read and execute. We set this on directories because "executing" a directory means searching it. The `2` sets the setgid permission, so new files and directories created get the same group ownership as the directory they're created in.
+
+The `0644` permission scheme allows the owner to read and write, and everyone else just read. The `0` unsets the setgid permission if it was set.
+
+Reference: [Reddit](https://www.reddit.com/r/jellyfin/comments/nzcv6f/grant_the_service_user_at_least_read_access/)
