@@ -44,6 +44,13 @@ docker run --rm -u gradle -v "$PWD":/home/gradle/project \
  ./gradle test --tests "*SubscriptionTest*"
 
 ```
+## Integrate gradle with
+When you have a maven project with the `maven-jar-compiler`plugin configured to publish the test folder (type `test-jar`), maven will publish the production jar and also the test-jar. You can import the test-jar  using a Gradle classifier. Example:
+
+``` groovy
+testImplementation 'com.company:library-common:1.0.0:tests'
+```
+So, there will be `library-common-1.0.0.jar` and `library-common-1.0.0-tests.jar` in the repository available to gradle, and it will use the one specified in the classifier.
 
 # Gradle Enterprise
 ## Debugging cache operations when using the Gradle Maven Extension
