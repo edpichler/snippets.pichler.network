@@ -52,6 +52,36 @@ testImplementation 'com.company:library-common:1.0.0:tests'
 ```
 So, there will be `library-common-1.0.0.jar` and `library-common-1.0.0-tests.jar` in the repository available to gradle, and it will use the one specified in the classifier.
 
+## Excluding transitive dependencies
+
+From entire classpath:
+
+``` kotlin
+configurations {
+    all {
+        exclude("org.apache.logging.log4j","log4j-1.2-api")
+    }
+}
+```
+
+From the testImplementation classpath:
+
+``` kotlin
+configurations {
+    testImplementation {
+        exclude("org.apache.logging.log4j","log4j-1.2-api")
+    }
+}
+```
+
+From the added dependency itself:
+
+``` kotlin
+api(project(":myproject")) {
+    exclude("org.apache.logging.log4j","log4j-1.2-api")
+}
+```
+
 # Gradle Enterprise
 ## Debugging cache operations when using the Gradle Maven Extension
 And also debug to find out why a cache was missed:
