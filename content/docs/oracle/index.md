@@ -15,7 +15,15 @@ DEFINE formatt = 'FM9999999999999999999990.00'
 
 select
     to_char(10000, '&formatt') as amount
-from DUAL
+from DUAL;
+```
+
+When you have dynamic, let's say 3, number of decimals:
+
+``` sql
+select
+    TO_CHAR(10000 / power(10, 3),(('999999999999990.'|| LTRIM((Power(10, 3)), 1)))) as net_amount,
+from DUAL;
 ```
 
 ## Format output in Oracle when you have very long columns 
