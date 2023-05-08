@@ -56,7 +56,7 @@ select * from my_table;
 
 ## Drop table if not exists, in Oracle
 
-Oracle, depending of the version, may not have the DROP IF EXISTS command, so you do:
+Oracle, depending of the version, may not have the DROP IF EXISTS command, so you do it in an "Oracle Anonymous Procedure":
 
 ``` sql
 BEGIN
