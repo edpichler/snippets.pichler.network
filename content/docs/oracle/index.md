@@ -53,3 +53,20 @@ WITH my_table as (
 )
 select * from my_table;
 ```
+
+## Drop table if not exists, in Oracle
+
+Oracle, depending of the version, may not have the DROP IF EXISTS command, so you do:
+
+``` sql
+BEGIN
+    execute immediate 'DROP TABLE aiai';
+EXCEPTION
+    WHEN OTHERS THEN
+        IF SQLCODE != -942 THEN
+            RAISE;
+        END IF;
+END;
+
+```
+
