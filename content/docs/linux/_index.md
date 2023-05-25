@@ -231,3 +231,23 @@ The `2755` permission scheme allows the owner to read, write, and execute, the g
 The `0644` permission scheme allows the owner to read and write, and everyone else just read. The `0` unsets the setgid permission if it was set.
 
 Reference: [Reddit](https://www.reddit.com/r/jellyfin/comments/nzcv6f/grant_the_service_user_at_least_read_access/)
+
+## Tar and Gzip
+
+### backing up a folder
+The command in an alias:
+```bash
+alias backup-myapp='tar -C /opt/myapp/bin/ -cvf /opt/myapp/bin_$(date "+%Y-%m-%d__%H_%M_%S").tar ./; ls /opt/myapp'
+```
+
+### Printing the contents of a tar file
+
+``` bash
+tar -tf file.tar 
+```
+
+Or you can see it with vim:
+
+``` bash
+vim file.tar
+```
