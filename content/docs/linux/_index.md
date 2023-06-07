@@ -9,16 +9,21 @@ weight: 1
 # bookSearchExclude: false
 ---
 
-## Automatically confirming a command in Linux
+## Creating dirs recursively in Linux
+
+`mkdir -p foo/bar/zoo/my\ dir\ with\ spaces/edu`
+
+
+## **Pottentially** automatically confirming a command in Linux
 
 ``` bash
-yes | ./script
+yes | ./script.sh
 ```
 
 In crontab you can do something like:
 
 ``` bash
-@monthly yes | ./script
+@monthly yes | ./script.sh
 ```
 ## OpenSSL
 
