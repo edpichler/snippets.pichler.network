@@ -18,11 +18,11 @@ select
 from DUAL;
 ```
 
-When you have dynamic, let's say 3, number of decimals:
+### When you have a dynamic, let's say 3, number of decimals:
 
 ``` sql
 select
-    TO_CHAR(10000 / power(10, 3),(('999999999999990.'|| LTRIM((Power(10, 3)), 1)))) as net_amount,
+    TO_CHAR(10000 / power(10, 3),(('999999999999990.'|| LTRIM((Power(10, 3)), 1)))) as my_amount,
 from DUAL;
 ```
 
