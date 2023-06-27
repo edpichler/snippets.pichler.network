@@ -147,7 +147,7 @@ Just do `git config commit.gpgsign true` in your repository.
 
 To sign all commits by default in any local repository on your computer, run `git config --global commit.gpgsign true`
 
-## Push automatically after a commit
+## Pushing automatically after a commit
 You need to have an executable (chmod +x) file in .git/hooks/post-commit that contains the following:
 ```
 #!/bin/sh
