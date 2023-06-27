@@ -256,3 +256,10 @@ Or you can see it with vim:
 ``` bash
 vim file.tar
 ```
+
+## Grep
+
+### Find a string in files recursively with grep:
+``` sh
+grep -ir --include "*.cpp" "xyz" .
+```
