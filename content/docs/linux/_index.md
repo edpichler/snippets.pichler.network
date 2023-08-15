@@ -263,3 +263,6 @@ vim file.tar
 ``` sh
 grep -ir --include "*.cpp" "xyz" .
 ```
+
+## Find who logged in since last reboot
+`last`
