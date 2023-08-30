@@ -263,6 +263,12 @@ vim file.tar
 ``` sh
 grep -ir --include "*.cpp" "xyz" .
 ```
+### Grep with regex and shorter lines
+
+Example:
+```
+grep -oE '.{70}\.java.{0,100}'
+```
 
 ## Find who logged in since the last reboot
 `last`
