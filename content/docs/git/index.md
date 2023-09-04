@@ -158,3 +158,113 @@ You can create it by doing:
 echo "#!/bin/sh" >> .git/hooks/post-commit
 echo "git push origin master" >> .git/hooks/post-commit
 ```
+
+## Software archeology with git
+
+### See the author names
+
+``` bash
+git shortlog -sne | cut -f2 | sort 
+```
+
+### Count the number of commits per file
+
+Files with many commits can often, but not always, point to a design problem.
+
+``` bash
+git log --no-merges --no-renames --numstat --pretty=format:"" -- **/*.java | cut -d$'\t' -f3 | grep -v '^$' | sort | uniq -c | sort
+```
+
+### Search for commit activity per author
+
+``` bash
+git shortlog -ns -- **/*.java
+```
+
+### Search for awkward things
+
+Todos and fixmes:
+
+``` bash
+git grep --perl-regexp "\/\/ *(todo|fixme)"
+``` 
+
+Commented code:
+
+``` bash
+git grep --perl-regexp " \/\/.*(=|;)" -- *.java
+
+```
+
+### Browse through the commit messages
+
+``` bash
+git log --pretty=format:"%h %s"
+```
+### Count last changed line in each Java source code file per author
+
+``` bash
+find . -type d -name ".git" -prune -o -type f \( -iname "*.java" \) | xargs -n1  git blame -w -f -C -M  --date=format:"|" | cut -d"|" -f 1 | cut -d"(" -f 2 | sed 's/\s*$//' | sort | uniq -c | sort
+
+```
+### Search in the commit content
+``` bash
+ git rev-list --all | xargs git grep \.stream\(\)
+ ```
+ 
+ Or:
+
+ ``` bash
+ git grep stream\. $(git rev-list --all)
+ ```
+
+### Limiting to a subtree, for instance lib/util. Notice you need to pass it in both commands:
+
+ ``` bash
+ git grep <regexp> $(git rev-list --all -- lib/util) -- lib/util
+```
+
+### Search working tree for text matching regular expression regexp:
+
+``` bash 
+git grep <regexp>
+```
+
+### Search for a pattern only in the changed lines
+
+``` bash
+git diff --unified=0 | grep <pattern>
+```
+
+### Search all revisions for text matching regular expression regexp:
+
+``` bash
+git grep \.stream\(\) $(git rev-list --all)
+```
+
+### All the branches that contain a commit
+
+``` bash
+git branch -a --contains 8beeff00d
+```
+
+### Getting more information about a commit
+You can then get more information like author, date, and diff using git show:
+
+``` bash
+git show 6988bec26b1503d45eb0b2e8a4364afb87dde7af
+```
+### All commits that cointain a regex
+ 
+ ``` bash
+ git log --author=edu --pretty -G \.stream\(\)
+ ```
+
+ ``` bash
+ git log --author=edu --pretty -G \.stream\(\) -- **/*Test.java
+ ```
+ 
+ ``` bash
+ git log --author=edu --pretty -G \.stream\(\)
+ ```
+ 
