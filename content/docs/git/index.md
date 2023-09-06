@@ -180,6 +180,10 @@ git log --no-merges --no-renames --numstat --pretty=format:"" -- **/*.java | cut
 ``` bash
 git shortlog -ns -- **/*.java
 ```
+Or, better:
+``` bash 
+git shortlog -ns .  --since "5 month ago" 
+```
 
 ### Search for awkward things
 
