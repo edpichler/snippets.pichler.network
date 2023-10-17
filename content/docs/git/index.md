@@ -214,13 +214,24 @@ find . -type d -name ".git" -prune -o -type f \( -iname "*.java" \) | xargs -n1 
 ### Search in the commit content
 ``` bash
  git rev-list --all | xargs git grep \.stream\(\)
- ```
- 
+``` 
  Or:
 
- ``` bash
+``` bash
  git grep stream\. $(git rev-list --all)
- ```
+```
+In `git grep` you can have the line number by adding `-n`.
+
+Or :
+```
+git log -Gstream
+```
+You can add a `-p` flag:
+```
+git log -p -Gstream
+```
+
+See more ways in [this forum](stackoverflow.com/questions/2928584/how-to-grep-search-through-committed-code-in-the-git-history)
 
 ### Limiting to a subtree, for instance lib/util. Notice you need to pass it in both commands:
 
