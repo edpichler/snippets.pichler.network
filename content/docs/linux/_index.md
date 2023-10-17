@@ -78,7 +78,7 @@ gpg --delete-key "User Name"
 
 ### GPG keys managers
 
-Two softwares to manage GPG keys: https://www.gpg4win.org/ and https://gpgtools.org/.
+Two softwares to manage GPG keys: https://www.gpg4win.org/ and https://gpgtools.org/ and [kleopatra](https://www.openpgp.org/software/kleopatra/).
 
 ## Finding things in Linux
 ### The `locate` command
