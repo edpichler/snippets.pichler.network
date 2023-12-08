@@ -48,6 +48,24 @@ openssl sha256 OperaSetup.zip
 gpg --full-generate-key
 ```
 
+### Generate a subkey
+```bash
+gpg --pinentry-mode=loopback --passphrase="" --quick-addkey 690E75A0F4CD1D98FC86234AAB9AFEA220BB696234  rsa4096 sign 0
+```
+Explanation:
+
+The --quick-add-key option takes between 1 and 4 space-delimited arguments:
+ - fpr: the "fingerprint" of existing private key
+ - algo: the desired algorithm for the new subkey
+ - usage: the desired usage kind for the new subkey
+ - expire: the desired expiration date or duration for the new subkey
+
+The --passphrase="" disables passphrase protection on the new subkey.
+
+The --pinentry-mode=loopback must (since version 2.1) be used in conjunction with --passphrase to avoid the interactive prompt.
+
+Docs: https://manpages.debian.org/bookworm/gpg/gpg.1.en.html#quick-add-key
+
 ### List private and public keys
 ```bash
 gpg --list-secret-keys
