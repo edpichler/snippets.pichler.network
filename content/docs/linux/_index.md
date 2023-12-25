@@ -210,18 +210,53 @@ Edit /etc/samba/smb.conf and add:
 
 ```
 [global]
+  allow insecure wide links = yes  #global configuration to allow sharing the content of any folder where a symlink is pointing to
+  #client min protocol = SMB2
+  #client max protocol = SMB3
+  protocol = SMB3 # to force a protocol version
+  #source https://www.cyberciti.biz/faq/how-to-configure-samba-to-use-smbv2-and-disable-smbv1-on-linux-or-unix/
+  workgroup = SAMBA
+  security = user
+  passdb backend = tdbsam
 
-allow insecure wide links = yes  #global configuration to allow sharing the content of any folder where a symlink is pointing to
 
 [some_name]
-path = /media/my_shared_folder
-writeable=Yes
-create mask=0777
-directory mask=0777
-public=no
-follow symlinks=yes #in case you want to share the content of the symlinks
-wide links=yes      #in case you want to share the content of the symlinks that the destination is outside of the shared folder too
+  path = /media/my_shared_folder
+  writeable=Yes
+  create mask=0770
+  directory mask=0770
+  public=no
+  follow symlinks=yes #in case you want to share the content of the symlinks
+  wide links=yes      #in case you want to share the content of the symlinks that the destination is outside of the shared folder too
+  security=user
+  valid users=pi
 ``` 
+
+Then restart the service:
+
+```
+sudo systemctl restart smbd.service
+```
+### Testing if samba is working
+
+```
+smbclient -L localhost
+```
+
+Check logs:
+```
+sudo systemctl status smbd.service
+```
+
+To setup the firewall:
+```
+sudo ufw allow from 192.168.0.0/16 to any app Samba
+```
+or
+```
+sudo ufw allow Samba
+```
+Then you can edit your ufw with `sudo ufw status numbered` and `sudo ufw delete #`.
 
 ## Find duplicate files in Windows and Linux
 
