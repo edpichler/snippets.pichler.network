@@ -10,7 +10,7 @@ weight: 1
 ---
 # Git
 
-I consider git on of the most important software ever created. It enabled people to work geographically distributed even without internet connection, with automated backups (every repo is potentially a repository backup). Because of git, software could evolve faster than ever.
+I consider git on of the most important software ever created. It enabled people to work geographically distributed even without internet connection, with automated backups (every repo is potentially a repository backup). Because of this little tool, software could evolve faster than ever. Yes, we had other version control systems before git, but only with git (and mercurial) we could work efficiently remotelly and OFFLINE.
 
 ## To update the local list (cache) of remote branches
 
@@ -29,8 +29,19 @@ Or you can also do a `git pull --all` to fetch from origin and update all your l
 
 To generate a patch from the last 10 commits:
 ``` bash
-git format-patch -10 --stdout > patch-ddmmyyy.patch
+git format-patch -10 --stdout > mypatch.patch
 ```
+Creat a patch from stashed changes:
+```
+git stash list
+git stash show -p stash@{<number>} > mypatch.patch
+```
+
+From uncommited changes:
+```git diff > mypatch.patch```
+
+To apply a patch:
+```git apply mypatch.patch```
 
 ## git stash
 
