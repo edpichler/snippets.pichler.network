@@ -13,6 +13,18 @@ weight: 1
 
 `mkdir -p foo/bar/zoo/my\ dir\ with\ spaces/edu`
 
+## Environment variables
+
+Load from a local `.env` file:
+
+`alias loadenv='export $(xargs <.env)'`
+
+### Using tools (dotenv)
+
+https://github.com/gyf304/dotenv
+https://github.com/dotenvx/dotenvx
+https://github.com/ko1nksm/shdotenv
+
 
 ## **Pottentially** automatically confirming a command in Linux
 
