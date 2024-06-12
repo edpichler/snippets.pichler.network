@@ -163,6 +163,18 @@ In case you don't have the `--line-buffered` option:
  cat mylogs.log | stdbuf -oL grep 'content I want'
 ```
 
+### Find duplicate files in Windows and Linux
+
+*Tip*: Sometimes is better to create hardlinks instead of deleting the duplicated files. Hardlinks and symlinks almost does not use space.
+
+Generate a list of duplicated files:
+
+`rdfind -makeresultsfile true .` or  `fdupes -R .` does the job.
+
+`rfind` can replace the duplicated files with hard and symbolic links. The flag is `rdfind -makehardlinks true .` I tested and it worked in both, Windows and Linux.
+
+And, the flag `-makeresultsfile true` is self explaining. 
+
 ## Configuring the Linux swap
 
 ``` bash
@@ -270,17 +282,6 @@ sudo ufw allow Samba
 ```
 Then you can edit your ufw with `sudo ufw status numbered` and `sudo ufw delete #`.
 
-## Find duplicate files in Windows and Linux
-
-*Tip*: Sometimes is better to create hardlinks instead of deleting the duplicated files. Hardlinks and symlinks almost does not use space.
-
-Generate a list of duplicated files:
-
-`rdfind -makeresultsfile true .` or  `fdupes -R .` does the job.
-
-`rfind` can replace the duplicated files with hard and symbolic links. The flag is `rdfind -makehardlinks true .` I tested and it worked in both, Windows and Linux.
-
-And, the flag `-makeresultsfile true` is self explaining. 
 
 ## Changing permissions in files and directories
 
