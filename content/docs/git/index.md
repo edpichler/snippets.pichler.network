@@ -154,9 +154,10 @@ git config --local user.email "eduardo.pichler@myemail.com"
 
 ## Signing your git commits
 
-Just do `git config commit.gpgsign true` in your repository.
+Congigure the key to be used:
+`git config --global user.signingkey EUUU75A0F4CD1D98FC863AAB9AFEA220BB696AA1`
 
-To sign all commits by default in any local repository on your computer, run `git config --global commit.gpgsign true`
+Do `git config --local commit.gpgsign true` in your repository.
 
 ## Pushing automatically after a commit
 You need to have an executable (chmod +x) file in .git/hooks/post-commit that contains the following:
