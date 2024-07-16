@@ -175,6 +175,15 @@ Generate a list of duplicated files:
 
 And, the flag `-makeresultsfile true` is self explaining. 
 
+### Listing files and directories with a max depth
+```sh
+find . -maxdepth 3 -exec ls -ld {} \;
+```
+For only listing directories, use the `-type` parameter:
+```sh
+find . -maxdepth 3 -type d -exec ls -ld {} \;
+```
+
 ## Configuring the Linux swap
 
 ``` bash
