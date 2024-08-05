@@ -55,12 +55,41 @@ openssl sha256 OperaSetup.zip
 
 ## GPG (GNU Privacy Guard)
 
-### Generate a gpg key pair
+### Generating a gpg key pair
 ```bash
 gpg --full-generate-key
 ```
 
-### Generate a subkey
+### Export the GPG keys
+ ```bash
+gpg --output private-key.pgp --armor --export-secret-key  6D934E6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
+gpg --output public-key.pgp --armor --export  6349BE6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
+```
+Or, export a key `base64`, and copy it to the clipboard:
+
+```bash
+gpg --export-secret-key 6D9BE6918FF79E0EE82CA93BF6F8A234DDC0A44D  > mykey.txt; cat otrust.txt | pbcopy; rm mykey.txt
+```
+
+### List private and public keys
+```bash
+gpg --list-secret-keys
+gpg --list-keys
+```
+
+### Change the GPG key password
+```bash
+gpg --edit-key Your-Key-ID-Here
+gpg> passwd
+gpg> save
+```
+### Delete private and public keys
+```bash
+gpg --delete-secret-key "User Name"
+gpg --delete-key "User Name"
+```
+
+### Generating subkeys
 ```bash
 gpg --pinentry-mode=loopback --passphrase="" --quick-addkey 690E75A0F4CD1D98FC86234AAB9AFEA220BB696234  rsa4096 sign 0
 ```
@@ -78,39 +107,13 @@ The --pinentry-mode=loopback must (since version 2.1) be used in conjunction wit
 
 Docs: https://manpages.debian.org/bookworm/gpg/gpg.1.en.html#quick-add-key
 
-### List private and public keys
-```bash
-gpg --list-secret-keys
-gpg --list-keys
-```
-
-### Export GPG keys
- ```bash
-gpg --output private-key.pgp --armor --export-secret-key  6D934E6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
-gpg --output public-key.pgp --armor --export  6349BE6918FF79E0EE82CA93BF6F8ADD7DDC0A44D
-```
-Or, export a key `base64`, and copy it to the clipboard:
-
-```bash
-gpg --export-secret-key 6D9BE6918FF79E0EE82CA93BF6F8A234DDC0A44D  > mykey.txt; cat otrust.txt | pbcopy; rm mykey.txt
-```
-### Change the GPG key password
-```bash
-gpg --edit-key Your-Key-ID-Here
-gpg> passwd
-gpg> save
-```
-### Delete private and public keys
-```bash
-gpg --delete-secret-key "User Name"
-gpg --delete-key "User Name"
-```
-
 ### GPG keys managers
 
 Two softwares to manage GPG keys: https://www.gpg4win.org/ and https://gpgtools.org/ and [kleopatra](https://www.openpgp.org/software/kleopatra/).
 
+
 ## Finding things in Linux
+
 ### The `locate` command
 
 This command will go through your entire filesystem and locate every occurrence of that keyword.

@@ -84,7 +84,7 @@ git stash drop # it will drop the stash@{0}
 ```
 
 ## git-crypt
-Git crypt is just awesome. **Not perfect**, but awesome. It is very useful, despite of its limitations.
+Git crypt is great. Not perfect, far from it, but still great. It is very useful despite of its limitations.
 
 ### Before starting it
 
