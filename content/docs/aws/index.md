@@ -16,5 +16,6 @@ weight: 1
 ## To sign in through the AWS CLI with IAM Identity Center credentials
 
 To login: `aws sso login --profile my-profile`
+
 And `aws sso logout` to logout.
 
