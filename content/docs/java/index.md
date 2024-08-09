@@ -12,8 +12,6 @@ weight: 1
 
 The strict rules of Java are a barrier of entrance for some developers which in the long term pays off removing problems that happens in most of languages, creating robust solutions and lowering the maintenance costs, which are the phase where most money is spent (90% of the sofware costs).
 
-If you want something even better than Java, we have Kotlin. -->
-
 ## AWT and Swing drag and drop in Java
 
 ``` java
