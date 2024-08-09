@@ -9,14 +9,12 @@ weight: 1
 # bookSearchExclude: false
 ---
 
-# To sign in through the AWS CLI with IAM Identity Center credentials
-
-``` sh
-aws sso login --profile my-profile 
-```
-
-And `aws sso logout` to logout.
-
-# To list the local configured aws cli profiles
+## To list the local configured aws cli profiles
 
 `aws configure list-profiles`
+
+## To sign in through the AWS CLI with IAM Identity Center credentials
+
+To login: `aws sso login --profile my-profile`
+And `aws sso logout` to logout.
+
