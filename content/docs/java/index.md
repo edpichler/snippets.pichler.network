@@ -236,4 +236,14 @@ public class Main extends JFrame {
 ```
 ## Masking sensitive data in JSON using regex
 
-<script src="https://gist.github.com/edpichler/8fad05f84236fece4bf0b7837fc29182.js"></script>
+``` java
+
+static class JsonMasker {
+    private static final Pattern JSON_PATTERN = Pattern.compile("(\"token\": *\")([^\"]+)*(\")",
+                                                                Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
+
+    private static String maskToken(final String message) {
+        return JSON_PATTERN.matcher(message).replaceAll("$1*****$3");
+    }
+}
+```
