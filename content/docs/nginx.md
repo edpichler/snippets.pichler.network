@@ -34,4 +34,4 @@ echo "Copying key (myssl.key) to /etc/ssl/private/"
 mkdir -p  /etc/ssl/private
 cp private.key /etc/ssl/private/
 ```
-Source: # from https://gist.github.com/edpichler/d7daa0c26b18dca6dc49f65f8d51274c#file-gistfile1-sh
+Source: https://gist.github.com/edpichler/d7daa0c26b18dca6dc49f65f8d51274c#file-gistfile1-sh
