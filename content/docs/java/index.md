@@ -69,7 +69,7 @@ public class JLabelAnimal extends JLabel{
 }
 ```
 
-```
+``` java
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.SystemColor;
