@@ -10,7 +10,7 @@ weight: 1
 ---
 # Java is awesome
 
-<!-- The strict rules of Java are a barrier of entrance for some developers, but a the long term, it removes problems that happens in most of languages creating robust solutions and lowering the maintenance costs, which are the phase where most money is expense (90% of the sofware costs).
+The strict rules of Java are a barrier of entrance for some developers which in the long term pays off removing problems that happens in most of languages, creating robust solutions and lowering the maintenance costs, which are the phase where most money is spent (90% of the sofware costs).
 
 If you want something even better than Java, we have Kotlin. -->
 
@@ -90,10 +90,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-/**
- * This is a Drag and Drop of complex object example. Reference:
- * http://zetcode.com/tutorials/javaswingtutorial/draganddrop/
- * */
 public class Main extends JFrame {
 
 	private JPanel contentPane;
