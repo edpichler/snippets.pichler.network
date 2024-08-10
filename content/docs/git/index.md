@@ -143,14 +143,15 @@ src/main/resources/*.yml filter=git-crypt diff=git-crypt
 
  ## Changing the Author for global and local repositories
  ``` bash
-git config --global user.name "Eduardo Ivan Pichler"
-git config --global user.email "eduardo.pichler@myemail.com"
- ```
- Or: 
-  ``` bash
-git config --local user.name "Eduardo Ivan Pichler"
-git config --local user.email "eduardo.pichler@myemail.com"
- ```
+git config --global user.name "João"
+git config --global user.email "joao@myemail.com"
+```
+It can also be `local` instead of `global`.
+
+## Auto setup remote branches
+```
+git config --global 'push.autoSetupRemote' true    
+```
 
 ## Signing your git commits
 
