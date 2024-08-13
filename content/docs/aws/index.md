@@ -9,13 +9,12 @@ weight: 1
 # bookSearchExclude: false
 ---
 
-## To list the local configured aws cli profiles
+# AWS profiles
 
-`aws configure list-profiles`
-
-## To sign in through the AWS CLI with IAM Identity Center credentials
-
-To login: `aws sso login --profile my-profile`
-
-And `aws sso logout` to logout.
-
+| Name                                      |                                                                                |
+| ----------------------------------------- | ------------------------------------------------------------------------------ |
+| `aws configure list-profiles`             | List the local configured aws cli profiles.                                    | 
+| `aws sso login --profile my-profile`      | To login in using a profile and the SSO (with IAM Identity Center credentials) |
+| `aws sso logout`                          | To logout. |
+| `aws s3 ls --profile=myProfile`           | List buckets using a profile | 
+| `export AWS_DEFAULT_PROFILE=myProfile`    | To set up the default aws profile.
