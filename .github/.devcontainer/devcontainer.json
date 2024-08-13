@@ -1,0 +1,7 @@
+{
+    "dockerFile": "./Dockerfile",
+    "postCreateCommand": {
+      "tools": "echo Tjena Edu! Terraform och atuin är redo för du!",
+      "atuin": "atuin sync"
+    }
+  }
