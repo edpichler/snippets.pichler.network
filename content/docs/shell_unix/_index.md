@@ -1,6 +1,6 @@
 ---
 title: "Shell (Unix)"
-weight: 1
+weight: 2
 # bookFlatSection: true
 # bookToc: false
 # bookHidden: true
@@ -8,7 +8,7 @@ weight: 1
 # bookComments: false
 # bookSearchExclude: false
 ---
-
+# Shell (Unix)
 ## Creating dirs recursively in Linux
 
 `mkdir -p foo/bar/zoo/my\ dir\ with\ spaces/edu`

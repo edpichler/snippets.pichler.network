@@ -1,7 +1,7 @@
 ---
 title: "Snippets Index"
 
-date: 2021-06-13`T18:56:45+02:01
+date: 2024-08-13`T18:56:45+02:01
 draft: false
 ---
 # Snippets are cool

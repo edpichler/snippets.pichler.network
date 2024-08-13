@@ -1,6 +1,6 @@
 ---
 title: "Postgres"
-weight: 1
+weight: 10
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
