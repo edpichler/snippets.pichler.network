@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
-USER @edpichler
+USER codespace
 RUN curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 USER vscode
 RUN curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
