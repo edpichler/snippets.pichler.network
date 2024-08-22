@@ -148,55 +148,56 @@ git config --global user.email "joao@myemail.com"
 ```
 It can also be `local` instead of `global`.
 
-## Auto setup remote branches
-```
-git config --global 'push.autoSetupRemote' true    
-```
+## git commit
 
-## Signing your git commits
+### Signing your commits
 
 Congigure the key to be used:
 `git config --global user.signingkey EUUU75A0F4CD1D98FC863AAB9AFEA220BB696AA1`
 
 Do `git config --local commit.gpgsign true` in your repository.
 
-## Pushing automatically after a commit
+## git push
+
+### Auto setup the remote branches
+```
+git config --global 'push.autoSetupRemote' true    
+```
+
+### Pushing automatically after a commit
+
 You need to have an executable (chmod +x) file in .git/hooks/post-commit that contains the following:
+
 ```
 #!/bin/sh
 git push origin master
 ```
 You can create it by doing:
-``` sh
-echo "#!/bin/sh" >> .git/hooks/post-commit
-echo "git push origin master" >> .git/hooks/post-commit
+```
+FILE=".git/hooks/post-commit"
+if [ ! -f $FILE ]; then
+  touch $FILE
+  echo '#!/bin/sh' | tee $FILE 
+fi
+echo 'git push origin master' | tee -a $FILE
 ```
 
-## Software archeology with git
+## git log
 
-### See the author names
+Software archeology with git.
 
-``` bash
-git shortlog -sne | cut -f2 | sort 
-```
+| Command                                                                                                                                    | Description                                                                                                         |
+|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| `git shortlog -sne \| cut -f2 \| sort`                                                                                                     | Shows the authors of the commits                                                                                    |
+| `git log --oneline`                                                                                                                        | Shows the commit hash and the commit message                                                                        |
+| `git log --oneline --author=carlos `                                                                                                       | Shows the commits of a specific author                                                                              | 
+| `git log --stat`                                                                                                                           | Shows the commit hash and the files changed                                                                         |
+| `git log --oneline --graph --all --decorate`                                                                                               | Shows the commit hash and the branches                                                                              |
+| `git log --oneline --graph --all --decorate --simplify-by-decoration`                                                                      | Shows the commit hash and the branches simplified                                                                   |
+| `git log --no-merges --no-renames --numstat --pretty=format:"" -- **/*.java \| cut -d$'\t' -f3 \| grep -v '^$' \| sort \| uniq -c \| sort` | Count the number of commits per file. Files with many commits can often, but not always, point to a design problem. | 
+| `git shortlog -ns -- **/*.java`                                                                                                            | Shows the number of commits per author in a specific file                                                           |  
+| `git shortlog -ns .  --since "5 month ago"`                                                                                                | Shows the number of commits per author in the last 5 months                                                         |  
 
-### Count the number of commits per file
-
-Files with many commits can often, but not always, point to a design problem.
-
-``` bash
-git log --no-merges --no-renames --numstat --pretty=format:"" -- **/*.java | cut -d$'\t' -f3 | grep -v '^$' | sort | uniq -c | sort
-```
-
-### Search for commit activity per author
-
-``` bash
-git shortlog -ns -- **/*.java
-```
-Or, better:
-``` bash 
-git shortlog -ns .  --since "5 month ago" 
-```
 
 ### Search for awkward things
 
