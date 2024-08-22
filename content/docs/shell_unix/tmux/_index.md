@@ -49,4 +49,11 @@ Terminal Multiplexer.
 | `C-b !`  | Break the current pane into a new window                   |
 
 
-##
+## Tmux configurations in `~/.tmux.conf`
+| Configuration                               |                                                      |
+|---------------------------------------------|------------------------------------------------------|
+| `set -g mouse on`                           | Enable mouse support                                 |
+| `set -g history-limit 10000`                | Set the history limit to 10000 lines                 |
+
+
+To reload the configuration file `tmux source ~/.tmux.conf`

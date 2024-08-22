@@ -27,3 +27,11 @@ Some useful commands.
 | `aws iam list-roles`                                      | List all roles in the account. |
 | `aws iam get-role --role-name my-role`                    | Get the details of a role. |
 | `aws iam list-attached-role-policies --role-name my-role` | List all policies attached to a role. |
+
+## AMS EKS
+| Command                                                   |                                                                                                     |
+|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `aws eks list-clusters`                                   | List all EKS clusters.                                                                              |
+| `aws eks describe-cluster --name my-cluster`              | Get the details of a cluster.                                                                       |
+| `aws eks update-kubeconfig --name my-cluster`             | Update the `kubeconfig` file to access the cluster. Do `kubectl get svc` to test your configuration |
+

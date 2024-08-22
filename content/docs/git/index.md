@@ -10,7 +10,8 @@ weight: 2
 ---
 # Git
 
-I consider git on of the most important software ever created. It enabled people to work geographically distributed even without internet connection, with automated backups (every repo is potentially a repository backup). Because of this little tool, software could evolve faster than ever. Yes, we had other version control systems before git, but only with git (and mercurial) we could work efficiently remotelly and OFFLINE.
+Git is one of the most important software ever created. It enabled people to work geographically distributed even with intermittent Internet connection. Each contributor has a copy of the repository including the historical changes. Software evolved faster than ever.
+
 
 ## To update the local list (cache) of remote branches
 
@@ -21,7 +22,6 @@ git branch -a
 git remote update origin --prune
 # Now you can see everything up to date with the origin
 git branch -a
-
 ```
 Or you can also do a `git pull --all` to fetch from origin and update all your local branches.
  
