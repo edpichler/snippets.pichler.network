@@ -23,17 +23,17 @@ Terminal Multiplexer.
 | `tmux kill-server`                  | Kill all the server and all tmux sessions           |
 
 ## Managing windows
-| Command                                         |                                                   |
-|-------------------------------------------------|---------------------------------------------------|
-| `tmux new-window -n window_name`                | Create a new window with the name `window_name`   |
-| `C-b c`                                         | Create a new window                               |
-| `C-b w`                                         | List all windows                                  |
-| `C-b 0`                                         | Switch to window 0                                |
-| `C-b n`                                         | Switch to the next window                         |
-| `C-b p`                                         | Switch to the previous window                     |
-| `tmux select-window -t window_name`             | Select a window with the name `window_name`       |
-| `C-b ,` or `tmux rename-window new_window_name` | Rename the current window to `new_window_name`    |
-| `tmux kill-window -t window_name`               | Kill a window with the name `window_name`         |
+| Command                                           |                                                   |
+|---------------------------------------------------|---------------------------------------------------|
+| `tmux new-window -n window_name`                  | Create a new window with the name `window_name`   |
+| `C-b c`                                           | Create a new window                               |
+| `C-b w`                                           | List all windows                                  |
+| `C-b 0`                                           | Switch to window 0                                |
+| `C-b n`                                           | Switch to the next window                         |
+| `C-b p`                                           | Switch to the previous window                     |
+| `tmux select-window -t window_name`               | Select a window with the name `window_name`       |
+| `C-b ,` or `tmux rename-window new_window_name`   | Rename the current window to `new_window_name`    |
+| `C-b &` or `tmux kill-window -t window_name`      | Kill a window with the name `window_name`         |
 
 ## Managing panes
 | Shortcut |                                                            |
