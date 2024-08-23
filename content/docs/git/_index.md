@@ -83,59 +83,6 @@ git stash clear
 git stash drop # it will drop the stash@{0}
 ```
 
-## git-crypt
-Git crypt is great. Not perfect, far from it, but still great. It is very useful despite of its limitations.
-
-### Before starting it
-
-Make sure you have the public gpg key installed:
-``` bash
-# List gpg keys
-gpg --list-keys 
-
-# List gpg secret keys
-gpg --list-secret-keys 
-
-```
-If you don't have you can [generate one with GPG](/docs/linux/#generate-a-gpg-key-pair).
-
-### Importing keybase keys to gpg
-``` bash
-# import keybase keys to gpg
-keybase pgp export | gpg --import
-
-# import private keys to gpg
-keybase pgp export -s | gpg --allow-secret-key-import --import
-
-```
-
-### Encrypting a git repository folder
-
-``` bash
-#initiate it
-git-crypt init
-
-#add the public key of the user
-git-crypt add-gpg-user 5A3700C672440657ACF09DEFB146A056E9BACD36
-```
-
-Configuring the secret files: 
-
-In the `.gitattributes` file you must do: 
-
-``` text
-# Example 
-secretfile filter=git-crypt diff=git-crypt
-*.key filter=git-crypt diff=git-crypt
-secretdir/** filter=git-crypt diff=git-crypt
-
-src/main/resources/*.yml filter=git-crypt diff=git-crypt
-```
-### Showing encrypted files
- ``` bash
- git-crypt status -e
- ```
-
  ## Changing the author of the last commit
  ``` bash
  git commit --amend --author="Eduardo Ivan Pichler <eduardo.pichler@myemail.com>" --no-edit
@@ -196,28 +143,16 @@ Software archeology with git.
 | `git log --oneline --graph --all --decorate --simplify-by-decoration`                                                                      | Shows the commit hash and the branches simplified                                                                   |
 | `git log --no-merges --no-renames --numstat --pretty=format:"" -- **/*.java \| cut -d$'\t' -f3 \| grep -v '^$' \| sort \| uniq -c \| sort` | Count the number of commits per file. Files with many commits can often, but not always, point to a design problem. | 
 | `git shortlog -ns -- **/*.java`                                                                                                            | Shows the number of commits per author in a specific file                                                           |  
-| `git shortlog -ns .  --since "5 month ago"`                                                                                                | Shows the number of commits per author in the last 5 months                                                         |  
+| `git shortlog -ns .  --since "5 month ago"`                                                                                                | Shows the number of commits per author in the last 5 months                                                         |
+| `git grep --perl-regexp "\/\/ *(todo\| fixme)"`                                                                                            | Shows the todos and fixmes in the code                                                                              |
+| `git log --pretty=format:"%h %s"`                                                                                                          | Browse through the commit messages                                                                                  | 
 
-
-### Search for awkward things
-
-Todos and fixmes:
-
-``` bash
-git grep --perl-regexp "\/\/ *(todo|fixme)"
-``` 
 
 Commented code:
 
 ``` bash
 git grep --perl-regexp " \/\/.*(=|;)" -- *.java
 
-```
-
-### Browse through the commit messages
-
-``` bash
-git log --pretty=format:"%h %s"
 ```
 ### Count last changed line in each Java source code file per author
 
