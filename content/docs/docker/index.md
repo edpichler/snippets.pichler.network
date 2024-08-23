@@ -1,5 +1,5 @@
 ---
-title: "Docker"
+title: "Containers (docker)"
 weight: 3
 # bookFlatSection: false
 # bookToc: true
@@ -8,11 +8,11 @@ weight: 3
 # bookComments: false
 # bookSearchExclude: false
 ---
-# Docker is awesome
-There is something in containerization and virtualization that attracts me very much. I think it's the ultimate separation of concerns, the break down of complexity and declouping of system components. 
+# Containers (docker)
+Containerization and virtualization is the ultimate separation of concerns. The breakdown of complexity and the de-coupling of the system components. 
 
 ## Running a container exposing a port:
-Exposes the container 80 port as a local/host 8080:
+Exposes the container `80` port as a local/host `8080`:
  ```bash
  docker run -p 8080:80 edpichler/nginx
  ```
