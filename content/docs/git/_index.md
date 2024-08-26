@@ -146,7 +146,8 @@ Software archeology with git.
 | `git shortlog -ns .  --since "5 month ago"`                                                                                                | Shows the number of commits per author in the last 5 months                                                         |
 | `git grep --perl-regexp "\/\/ *(todo\| fixme)"`                                                                                            | Shows the todos and fixmes in the code                                                                              |
 | `git log --pretty=format:"%h %s"`                                                                                                          | Browse through the commit messages                                                                                  | 
-
+| `git log --author=edu --pretty -G \.stream\(\)`                                                                                            | Shows the commits of a specific author that contains a regex.                                                       |
+| `git log --author=edu --pretty -G \.stream\(\) -- **/*Test.java`                                                                           | Shows the commits of a specific author that contains a regex filtering by specific files.                           |
 
 Commented code:
 
@@ -206,31 +207,20 @@ git diff --unified=0 | grep <pattern>
 git grep \.stream\(\) $(git rev-list --all)
 ```
 
-### All the branches that contain a commit
+## git branch
+| Command                                                                                                   | Description                                                            |
+|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| `git branch -a`                                                                                           | Shows all the local and remote branches  that the local git know about |
+| `git branch -a --contains 8beeff00d`                                                                      | Shows the branches that contain a commit                               |
+| `git branch -d branch_name`                                                                               | Deletes a branch                                                       |
+| `git branch -m old_branch new_branch`                                                                     | Renames a branch                                                       |
+| `git branch -vv`                                                                                          | Shows the tracking branches                                            |
 
-``` bash
-git branch -a --contains 8beeff00d
-```
 
-### Getting more information about a commit
-You can then get more information like author, date, and diff using git show:
-
-``` bash
-git show 6988bec26b1503d45eb0b2e8a4364afb87dde7af
-```
-### All commits that cointain a regex
- 
- ``` bash
- git log --author=edu --pretty -G \.stream\(\)
- ```
-
- ``` bash
- git log --author=edu --pretty -G \.stream\(\) -- **/*Test.java
- ```
- 
- ``` bash
- git log --author=edu --pretty -G \.stream\(\)
- ```
+## git show
+| Command                                                                                                    | Description                     |
+|------------------------------------------------------------------------------------------------------------|---------------------------------|
+| `git show 6988bec26b1503d45eb0b2e8a4364afb87dde7af`                                                        | Shows the details of a commit   |
 
 ## git filter-branch
 
