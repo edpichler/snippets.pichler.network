@@ -27,21 +27,13 @@ Or you can also do a `git pull --all` to fetch from origin and update all your l
  
 ## git patch
 
-To generate a patch from the last 10 commits:
-``` bash
-git format-patch -10 --stdout > mypatch.patch
-```
-Creat a patch from stashed changes:
-```
-git stash list
-git stash show -p stash@{<number>} > mypatch.patch
-```
-
-From uncommited changes:
-```git diff > mypatch.patch```
-
-To apply a patch:
-```git apply mypatch.patch```
+| Command                                                                                                  | Description                                    |
+|----------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| `git format-patch -10 --stdout > mypatch.patch`                                                          | Creates a patch file with the last 10 commits. |
+| `git apply mypatch.patch`                                                                                | Applies the patch file.                        |
+| `git apply --check mypatch.patch`                                                                        | Checks if the patch can be applied.            |
+| `git stash list; git stash show -p stash@{<number>} > mypatch.patch`                                     | Creates a patch file from a stash.             |
+| `git diff > mypatch.patch`                                                                               | Creates a patch file from uncommited changes.  |
 
 ## git stash
 
