@@ -231,4 +231,11 @@ git show 6988bec26b1503d45eb0b2e8a4364afb87dde7af
  ``` bash
  git log --author=edu --pretty -G \.stream\(\)
  ```
- 
+
+## git filter-branch
+
+Rewriting branches history.
+
+| Command                                                                                                    | Description                                                 |
+|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| `git filter-branch --tree-filter 'rm -rf terraform/*.tfstate'`                                             | Remove all the `.tfstate` files from the repository history |
