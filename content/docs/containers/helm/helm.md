@@ -16,3 +16,11 @@ The package manager for Kubernetes.
 | Command                  |                                                             |
 |--------------------------|-------------------------------------------------------------|
 | `helm search repo nginx` | Search for a chart (nginx in this case) in the repositories |
+
+
+## helm show
+
+
+| Command                                          |       |
+|--------------------------------------------------|-------|
+| `helm show values jetstack/cert-manager \| vim`  |       |
