@@ -35,3 +35,8 @@ Some useful commands.
 | `aws eks describe-cluster --name my-cluster`              | Get the details of a cluster.                                                                       |
 | `aws eks update-kubeconfig --name my-cluster`             | Update the `kubeconfig` file to access the cluster. Do `kubectl get svc` to test your configuration |
 
+## AWS Policies
+| Command                                                                                         |                                   |
+|-------------------------------------------------------------------------------------------------|-----------------------------------|
+| `aws iam list-policies`                                                                         | List all policies in the account. |
+| `aws iam get-policy --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy` | Get the details of a policy.      |
