@@ -9,7 +9,6 @@ weight: 1
 # bookSearchExclude: false
 ---
 # AWS
-Some useful commands.
 
 ## AWS profiles
 
