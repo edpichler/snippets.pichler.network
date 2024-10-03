@@ -198,6 +198,13 @@ git diff --unified=0 | grep <pattern>
 ``` bash
 git grep \.stream\(\) $(git rev-list --all)
 ```
+## git rebasing
+
+| Command                                                    | Description                                                              |
+|------------------------------------------------------------|--------------------------------------------------------------------------|
+| git fetch && git fetch origin tag my-tag --no-tags --force | Fetch the my-tag from the origin                                         |
+| git rebase my-tag; git checkout -b feature/branch-name     | Rebase the current branch to the my-tag and create a new branch from it. |
+
 
 ## git branch
 | Command                                                                                                   | Description                                                            |
