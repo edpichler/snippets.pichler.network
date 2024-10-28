@@ -216,6 +216,17 @@ git grep \.stream\(\) $(git rev-list --all)
 | `git branch -m old_branch new_branch`                                                                     | Renames a branch                                                       |
 | `git branch -vv`                                                                                          | Shows the tracking branches                                            |
 
+### Renaming branches
+
+``` bash
+preffix='old'
+new_prefix='new_preffix'
+for branch in $(git branch | grep "^  $preffix"); do
+  new_branch_name=$(echo $branch | sed "s/^$preffix/$new_prefix/")
+  echo "Renaming to $new_branch_name..."
+  # git branch -m $branch $new_branch_name
+done
+```
 
 ## git show
 | Command                                                                                                    | Description                     |
