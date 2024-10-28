@@ -27,13 +27,14 @@ Or you can also do a `git pull --all` to fetch from origin and update all your l
 
 ## git patch
 
-| Command                                                                                                  | Description                                    |
-|----------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| `git format-patch -10 --stdout > mypatch.patch`                                                          | Creates a patch file with the last 10 commits. |
-| `git apply mypatch.patch`                                                                                | Applies the patch file.                        |
-| `git apply --check mypatch.patch`                                                                        | Checks if the patch can be applied.            |
-| `git stash list; git stash show -p stash@{<number>} > mypatch.patch`                                     | Creates a patch file from a stash.             |
-| `git diff > mypatch.patch`                                                                               | Creates a patch file from uncommited changes.  |
+| Command                                                              | Description                                    |
+|----------------------------------------------------------------------|------------------------------------------------|
+| `git format-patch -10 --stdout > mypatch.patch`                      | Creates a patch file with the last 10 commits. |
+| `git format-patch -1 --stdout <commit-hash> mypatch.patch`           | Creates a patch file with the commit.          |
+| `git apply mypatch.patch`                                            | Applies the patch file.                        |
+| `git apply --check mypatch.patch`                                    | Checks if the patch can be applied.            |
+| `git stash list; git stash show -p stash@{<number>} > mypatch.patch` | Creates a patch file from a stash.             |
+| `git diff > mypatch.patch`                                           | Creates a patch file from uncommited changes.  |
 
 ## git stash
 
