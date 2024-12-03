@@ -25,6 +25,12 @@ git branch -a
 ```
 Or you can also do a `git pull --all` to fetch from origin and update all your local branches.
 
+## git checkout
+
+| Command                                                                                        | Description                                    |
+|------------------------------------------------------------------------------------------------|------------------------------------------------|
+| `git checkout -b origin/<branch-name>` or `git checkout -b <branch-name> origin/<branch-name>` | Checks out a branch from the origin.           |
+
 ## git patch
 
 | Command                                                              | Description                                    |
