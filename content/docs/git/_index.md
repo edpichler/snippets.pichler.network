@@ -25,6 +25,13 @@ git branch -a
 ```
 Or you can also do a `git pull --all` to fetch from origin and update all your local branches.
 
+## git branch
+
+| Command          | Description                |
+|------------------|----------------------------|
+| `git branch -r`  | Lists the remote branches. |
+
+
 ## git checkout
 
 | Command                                                                                        | Description                                    |
