@@ -31,6 +31,30 @@ Or you can also do a `git pull --all` to fetch from origin and update all your l
 |------------------|----------------------------|
 | `git branch -r`  | Lists the remote branches. |
 
+### Batch renaming branches
+
+Adding a suffix:
+```
+FILTER_BRANCH='feature/my_branch'
+PREFIX='old/'
+for branch in $(git branch | grep "^  $FILTER_BRANCH"); do
+new_branch_name="${PREFIX}${branch}"
+echo "Renaming to $new_branch_name..."
+git branch -m "$branch" "$new_branch_name"
+done
+```
+
+Renaming a branch with a suffix:
+```
+PREFFIX='feature/my_branch'
+NEW_PREFFIX='old/feature/my_branch'
+for branch in $(git branch | grep "^  $PREFFIX"); do
+  new_branch_name=$(echo $branch | sed "s|^$PREFFIX|$NEW_PREFFIX|")
+  echo "Renaming to $new_branch_name..."
+  git branch -m $branch $new_branch_name
+done
+
+```
 
 ## git checkout
 
