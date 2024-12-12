@@ -22,6 +22,11 @@ Exposes the container `80` port as a local/host `8080`:
  ``` bash
     docker exec -it e4383e55958d /bin/bash
  ```
+## Listing the installed packages in a container
+And dumping the output to a file:
+ ``` bash
+    docker run --rm ubuntu dpkg -l > installed_libraries.txt
+ ```
 
 ## Listeing all containers:
  ```bash
