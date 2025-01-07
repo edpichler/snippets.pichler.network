@@ -61,6 +61,7 @@ done
 | Command                                                                                        | Description                                    |
 |------------------------------------------------------------------------------------------------|------------------------------------------------|
 | `git checkout -b origin/<branch-name>` or `git checkout -b <branch-name> origin/<branch-name>` | Checks out a branch from the origin.           |
+| `git checkout -b <branch-name> my-tag`                                                         | Creates a new branch from a tag.               |
 
 ## git patch
 
@@ -238,10 +239,11 @@ git grep \.stream\(\) $(git rev-list --all)
 ```
 ## git rebasing
 
-| Command                                                    | Description                                                              |
-|------------------------------------------------------------|--------------------------------------------------------------------------|
-| git fetch && git fetch origin tag my-tag --no-tags --force | Fetch the my-tag from the origin                                         |
-| git rebase my-tag; git checkout -b feature/branch-name     | Rebase the current branch to the my-tag and create a new branch from it. |
+| Command                                                      | Description                                                                |
+|--------------------------------------------------------------|----------------------------------------------------------------------------|
+| `git fetch && git fetch origin tag my-tag --no-tags --force` | Fetch the my-tag from the origin                                           |
+| `git rebase my-tag; git checkout -b feature/branch-name `    | Rebase the current branch from the my-tag and create a new branch from it. |
+| `git fetch; git rebase my-tag`                               | Rebase the current branch from the my-tag                                  |
 
 
 ## git branch
