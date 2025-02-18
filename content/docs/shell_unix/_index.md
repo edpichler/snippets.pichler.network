@@ -11,7 +11,7 @@ weight: 2
 # Shell (Unix)
 ## Creating dirs recursively in Linux
 
-`mkdir -p foo/bar/zoo/my\ dir\ with\ spaces/edu`
+`mkdir -p foo/bar/zoo/my\ dir\ with\ spaces/here`
 
 ## Environment variables
 
@@ -31,28 +31,6 @@ https://github.com/ko1nksm/shdotenv
 ``` bash
 yes | ./script.sh
 ```
-
-In crontab you can do something like:
-
-``` bash
-@monthly yes | ./script.sh
-```
-## OpenSSL
-
-### Generating self-signed SSL certificates to be used in Nginx
-
-The same command works on [macOS X](../macOS+X/). 
-
-``` bash
-openssl req -x509 -nodes -days 36500 -newkey rsa:2048 \
- -keyout private-selfsigned.key -out public-selfsigned.crt
-```
-
-### Discovering the sha256 of a file using openssl:
-```bash
-openssl sha256 OperaSetup.zip
-```
-
 ## GPG (GNU Privacy Guard)
 
 ### Generating a gpg key pair
