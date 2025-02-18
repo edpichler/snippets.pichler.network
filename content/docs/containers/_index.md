@@ -73,3 +73,17 @@ docker service list
 
 docker service update --force myservice-api --replicas 0 
 ```
+
+## Add certificates to images
+In the `Dockerfile`
+
+```
+# Install the ca-certificate package
+RUN apt-get update && apt-get install -y ca-certificates
+
+# Copy the CA certificate from the context to the build container
+COPY your_certificate.crt /usr/local/share/ca-certificates/
+
+# Update the CA certificates in the container
+RUN update-ca-certificates
+```
