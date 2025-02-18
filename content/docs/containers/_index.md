@@ -75,6 +75,7 @@ docker service update --force myservice-api --replicas 0
 ```
 
 ## Add certificates to images
+
 In the `Dockerfile`
 
 ```
@@ -87,3 +88,6 @@ COPY your_certificate.crt /usr/local/share/ca-certificates/
 # Update the CA certificates in the container
 RUN update-ca-certificates
 ```
+Notice: you need to have .crt certificates. If you have .pem, you can [corvert it with OpenSSL](https://snippets.pichler.network/docs/openssl/)
+
+Source: https://docs.docker.com/engine/network/ca-certs/
