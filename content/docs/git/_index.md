@@ -33,27 +33,21 @@ Or you can also do a `git pull --all` to fetch from origin and update all your l
 
 ### Batch renaming branches
 
-Adding a suffix:
+Adding a prefix:
 ```
-FILTER_BRANCH='feature/my_branch'
-PREFIX='old/'
-for branch in $(git branch | grep "^  $FILTER_BRANCH"); do
-new_branch_name="${PREFIX}${branch}"
-echo "Renaming to $new_branch_name..."
-git branch -m "$branch" "$new_branch_name"
-done
-```
+REGEX='^.*noble.*'
+NEW_PREFIX='old/'
+DRY_RUN=true
 
-Renaming a branch with a suffix:
-```
-PREFFIX='feature/my_branch'
-NEW_PREFFIX='old/feature/my_branch'
-for branch in $(git branch | grep "^  $PREFFIX"); do
-  new_branch_name=$(echo $branch | sed "s|^$PREFFIX|$NEW_PREFFIX|")
-  echo "Renaming to $new_branch_name..."
-  git branch -m $branch $new_branch_name
+for branch in $(git branch | grep -E "$REGEX"); do
+  new_branch_name="${NEW_PREFIX}${branch}"
+  if [ "$DRY_RUN" = false ]; then
+    echo "Renaming to $new_branch_name..."
+    git branch -m $branch $new_branch_name
+  else
+    echo "Dry run: git branch -m $branch $new_branch_name"
+  fi
 done
-
 ```
 
 ## git checkout
