@@ -17,6 +17,7 @@ weight: 10
 
 ## Creating thumbnails (Windows)
 
+``` powershell
 $filter = "*.cr3"
 $newExtension = "_thumbnail.jpeg"
 $files = Get-ChildItem -Filter $filter
@@ -29,3 +30,4 @@ foreach ($file in $files) {
     magick "$file" -auto-orient -thumbnail 1000x1000 $newname
     echo "Generating thumbnail for $file to $newname ($currentFile of $totalFiles)"
 }
+```
