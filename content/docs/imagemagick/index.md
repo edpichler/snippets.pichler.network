@@ -20,9 +20,12 @@ weight: 10
 $filter = "*.cr3"
 $newExtension = "_thumbnail.jpeg"
 $files = Get-ChildItem -Filter $filter
+$totalFiles = $files.Count
+$currentFile = 0
 
 foreach ($file in $files) {
+    $currentFile++
     $newname = $file.Name.Remove($file.Name.Length - $file.Extension.Length) + $newExtension
-    ./magick.exe -thumbnail "$file" 1000x1000 $newname
-    echo "Thumbnail generated for $file in $newname"
+    magick "$file" -auto-orient -thumbnail 1000x1000 $newname
+    echo "Generating thumbnail for $file to $newname ($currentFile of $totalFiles)"
 }
