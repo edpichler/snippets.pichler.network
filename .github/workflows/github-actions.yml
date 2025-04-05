@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Cache...
         id: cache_checkout
-        uses: actions/cache@v2
+        uses: actions/cache@v4.2.3
         with:
           path: ${{ env.ROOT_PROJECT_FOLDER }}
           key: ${{ runner.os }}-cache-${{ github.sha }}
