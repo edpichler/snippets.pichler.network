@@ -13,5 +13,6 @@ https://github.com/devcontainers/images/blob/main/docs/TIPS.md/#why-do-dockerfil
 
 $GIT_HASH=git rev-parse --short=7 HEAD
 docker build -t edpichler/devcontainer-hugo:latest -t edpichler/devcontainer-hugo:$GIT_HASH .
-docker push edpichler/devcontainer-hugo:latest -t edpichler/devcontainer-hugo:$GIT_HASH .
+docker push edpichler/devcontainer-hugo:latest
+docker push edpichler/devcontainer-hugo:$GIT_HASH
 ```
