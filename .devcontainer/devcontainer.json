@@ -1,0 +1,6 @@
+{
+  "image": "edpichler/devcontainer-hugo:latest",
+  "postAttachCommand": {
+    "tools": "echo Tjena!"
+  }
+}
