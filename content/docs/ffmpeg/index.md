@@ -147,7 +147,7 @@ $video1 = "video1.mp4"
 $video2 = "video2.mp4"
 
 $outputDirectory = "comparison_images"
-$interval = 15
+$interval = 10
 $scaleHeight = 1080
 $duration = $(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $video1)
 
