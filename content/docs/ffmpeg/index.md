@@ -103,10 +103,12 @@ foreach ($preset in $nvencPresets) {
             $frame1 = "$outputDirectory/frame1.png"
             $frame2 = "$outputDirectory/frame2.png"
             $output = "$outputDirectory/comparison_$newname.jpg"
-            $extractFrame1Cmd = "ffmpeg $from -i $file -vframes 1 -q:v 1 $frame1"
-            Invoke-Expression $extractFrame1Cmd
-            ffmpeg -i $newname -vframes 1 -q:v 1 $frame2
+            $extractFrameCmd = "ffmpeg $from -i $file -vframes 1 -q:v 1 $frame1"
+            Invoke-Expression $extractFrameCmd
+            $extractFrameCmd = "ffmpeg -i $newname -vframes 1 -q:v 1 $frame2"
+            Invoke-Expression $extractFrameCmd
             ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $output
+
             Remove-Item $frame1, $frame2
 
         }
@@ -182,22 +184,24 @@ $video1 = "video1.mp4"
 $video2 = "video2.mp4"
 
 $outputDirectory = "comparison_images"
-$interval = 10
+$interval = 15
 $scaleHeight = 1080
-$duration = 100
+$duration = $(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $video1)
+
 # Create a directory to store the comparison images
 if (-not (Test-Path $outputDirectory)) {
     New-Item -Path $outputDirectory -ItemType Directory
 }
 
 for ($timestamp = 0; $timestamp -lt $duration; $timestamp += $interval) {
-    $frame1 = "$outputDirectory/frame1.png"
-    $frame2 = "$outputDirectory/frame2.png"
-    $output = "$outputDirectory/comparison_$timestamp.jpg"
+    $frame1 = "$outputDirectory/frame$timestamp-a.png"
+    $frame2 = "$outputDirectory/frame$timestamp-b.png"
+    $frameCombined = "$outputDirectory/frame$timestamp-combined.png"
     ffmpeg -ss $timestamp  -i $video1 -vframes 1 -q:v 1 $frame1
     ffmpeg -ss $timestamp  -i $video2 -vframes 1 -q:v 1 $frame2
-    ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $output
-    Remove-Item $frame1, $frame2
+    magick mogrify -gravity northwest -pointsize 24 -fill black -annotate +21+21 'Orginal' -fill white -annotate +20+20 'Orginal' $frame1
+    magick mogrify -gravity northwest -pointsize 24 -fill black -annotate +21+21 'Compressed' -fill white -annotate +20+20 'Compressed' $frame2
+    ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $frameCombined
 }
 ```
 
