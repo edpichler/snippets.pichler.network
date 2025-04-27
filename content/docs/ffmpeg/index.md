@@ -63,7 +63,7 @@ Without re-encoding:
 ## Running ffmpeg using different combinations of parameters
 
 ```powershell
-$filter = "*209_video.mp4"
+$filter = "*_video.mp4"
 $files = Get-ChildItem -Filter $filter
 
 $nvencPresets = @("p1", "p4", "p7")
@@ -92,9 +92,23 @@ foreach ($preset in $nvencPresets) {
             $currentDateTime + "; " + $theCommand | Out-File -FilePath "$($file)_ffmpeg_commands_executed.log" -Encoding utf8 -Append
             Invoke-Expression $theCommand
 
-            # optional: create a video comparison
-            $comparisionVideoName = $newname + "_comparison.mp4"
-            ffmpeg $from -i $file -i $newname -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2" -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
+            # comparision video using images: optional
+            $outputDirectory = "comparison_images"
+            $scaleHeight = 1080
+            # Create a directory to store the comparison images
+            if (-not (Test-Path $outputDirectory)) {
+                New-Item -Path $outputDirectory -ItemType Directory
+            }
+
+            $frame1 = "$outputDirectory/frame1.png"
+            $frame2 = "$outputDirectory/frame2.png"
+            $output = "$outputDirectory/comparison_$newname.jpg"
+            $extractFrame1Cmd = "ffmpeg $from -i $file -vframes 1 -q:v 1 $frame1"
+            Invoke-Expression $extractFrame1Cmd
+            ffmpeg -i $newname -vframes 1 -q:v 1 $frame2
+            ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $output
+            Remove-Item $frame1, $frame2
+
         }
       }
     }
@@ -159,6 +173,7 @@ $duration = 10
 ffmpeg -i $video1 -i $video2 -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2" -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
 
 ```
+
 ## Compare videos side by side using images
 
 ``` powershell
