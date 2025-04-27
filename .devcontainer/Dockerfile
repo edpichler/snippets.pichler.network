@@ -33,3 +33,5 @@ RUN echo "cd $project_folder \
 RUN echo "echo 'Syncing atuin:' && atuin sync" >> ~/.bashrc
 
 RUN git config --global --add safe.directory $project_folder
+
+EXPOSE 1313
