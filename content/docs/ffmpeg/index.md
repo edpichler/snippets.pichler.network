@@ -107,6 +107,13 @@ foreach ($preset in $nvencPresets) {
             Invoke-Expression $extractFrameCmd
             $extractFrameCmd = "ffmpeg -i $newname -vframes 1 -q:v 1 $frame2"
             Invoke-Expression $extractFrameCmd
+
+            $label1 = "Original: $file"
+            $bitrate = $(ffprobe -v error -show_entries format=bit_rate -of default=noprint_wrappers=1:nokey=1  $newname)
+            $label2 = "Compressed. Preset: $preset; Tune: $tune; CQ: $targetQuality; Scale: $scale; Bitrate: $bitrate;"
+            magick mogrify -gravity northwest -pointsize 20 -fill black -annotate +18+18 $label1 -fill white -annotate +16+16 $label1 $frame1
+            magick mogrify -gravity northwest -pointsize 20 -fill black -annotate +18+18 $label2 -fill white -annotate +16+16 $label2 $frame2
+
             ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $output
 
             Remove-Item $frame1, $frame2
