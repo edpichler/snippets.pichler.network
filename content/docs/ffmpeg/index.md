@@ -75,7 +75,7 @@ $pixFormat = "-pix_fmt yuv444p"
 $mapVideoAudioSubs = "-map 0:v" #-map 0:a -map 0:s"
 $mapFileMetadata = "-map_metadata 0 -movflags use_metadata_tags"
 $from = "-ss 7"
-$to = "-t 5"
+$duration = "-t 5"
 $scales = @("350", "480", "720", "1080", "1440", "2160", "4320")
 
 foreach ($preset in $nvencPresets) {
@@ -84,13 +84,17 @@ foreach ($preset in $nvencPresets) {
       foreach ($scale in $scales) {
         $scaleArg = "-vf scale=-1:" + $scale
         foreach ($file in $files) {
-            $theCommand = "ffmpeg $from -i $file $to $mapFileMetadata $mapVideoAudioSubs "
+            $theCommand = "ffmpeg $from -i $file $duration $mapFileMetadata $mapVideoAudioSubs "
             $newname = $file.Name.Remove($file.Name.Length - $file.Extension.Length)
             $newname += "." + $scale + "p.ffmpeg.nvenc.cq_$targetQuality.tune_$tune.preset_$preset.mkv"
             $theCommand += " -c:v hevc_nvenc $scaleArg -tune $tune -cq $targetQuality $variableBitrate $pixFormat -preset $preset $newname"
             $currentDateTime = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
             $currentDateTime + "; " + $theCommand | Out-File -FilePath "$($file)_ffmpeg_commands_executed.log" -Encoding utf8 -Append
             Invoke-Expression $theCommand
+
+            # optional: create a video comparison
+            $comparisionVideoName = $newname + "_comparison.mp4"
+            ffmpeg $from -i $file -i $newname -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2" -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
         }
       }
     }
@@ -127,16 +131,32 @@ foreach ($file in $files) {
           $newname = $file.Name.Remove($file.Name.Length - $file.Extension.Length)
           $newname += "."+ $scale + "p.ffmpeg.nvenc.cq_$targetQuality.tune_$tune.preset_$preset.mkv"
           $theCommand += " -c:v hevc_nvenc $scaleArg -tune $tune -cq $targetQuality $variableBitrate $pixFormat -preset $preset $newname "
+          # optional: create a video comparison
+
+          $comparisionVideoName = $newname + "_comparison.mp4"
+          $comparisionVideoCommand = "ffmpeg $from -i $file -i $newname -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2 "
+          $comparisionVideoCommand =  -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
         }
 
         $currentDateTime = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss.fff")
         $currentDateTime + "; " + $theCommand | Out-File -FilePath "$($file)_ffmpeg_commands_executed.log" -Encoding utf8 -Append
         Invoke-Expression $theCommand
+
       }
     }
   }
 }
 
+## Compare videos side by side
+
+```powershell
+$video1 = "original.mp4"
+$video2 = "otherVideo.mkv"
+$output = "comparision_video1_video2.mp4"
+$duration = 10
+
+# Create comparision video
+ffmpeg -i $video1 -i $video2 -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2" -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
 
 ```
 ## Links:
