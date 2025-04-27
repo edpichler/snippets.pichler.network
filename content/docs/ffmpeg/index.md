@@ -126,50 +126,6 @@ foreach ($preset in $nvencPresets) {
 
 ```
 
-Again, although, multiple scales arguments in the same command:
-
-```powershell
-$filter = "*209_video.mp4"
-$files = Get-ChildItem -Filter $filter
-
-$nvencPresets = @("p1", "p7")
-$nvecTunes = @("hq", "uhq", )
-$targetQualityLevel = @("0", "10", "15", "20", "25", "30", "35", "40", "45", "50")
-$scales = @("350", "4320")
-
-$variableBitrate = "-rc vbr -b:v 0"
-$pixFormat = "-pix_fmt yuv444p"
-$mapVideoAudioSubs = "-map 0:v" #-map 0:a -map 0:s"
-$mapFileMetadata = "-map_metadata 0 -movflags use_metadata_tags"
-$from = "-ss 7"
-$to = "-t 5"
-
-foreach ($file in $files) {
-  foreach ($preset in $nvencPresets) {
-    foreach ($tune in $nvecTunes) {
-      foreach ($targetQuality in $targetQualityLevel) {
-        $theCommand = "ffmpeg $from -i $file $to $mapFileMetadata $mapVideoAudioSubs "
-        foreach ($scale in $scales) {
-          $scaleArg = "-vf scale=-1:" + $scale
-          $newname = $file.Name.Remove($file.Name.Length - $file.Extension.Length)
-          $newname += "."+ $scale + "p.ffmpeg.nvenc.cq_$targetQuality.tune_$tune.preset_$preset.mkv"
-          $theCommand += " -c:v hevc_nvenc $scaleArg -tune $tune -cq $targetQuality $variableBitrate $pixFormat -preset $preset $newname "
-          # optional: create a video comparison
-
-          $comparisionVideoName = $newname + "_comparison.mp4"
-          $comparisionVideoCommand = "ffmpeg $from -i $file -i $newname -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2 "
-          $comparisionVideoCommand =  -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
-        }
-
-        $currentDateTime = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss.fff")
-        $currentDateTime + "; " + $theCommand | Out-File -FilePath "$($file)_ffmpeg_commands_executed.log" -Encoding utf8 -Append
-        Invoke-Expression $theCommand
-
-      }
-    }
-  }
-}
-
 ## Compare videos side by side
 
 ```powershell
