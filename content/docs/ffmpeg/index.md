@@ -159,6 +159,33 @@ $duration = 10
 ffmpeg -i $video1 -i $video2 -filter_complex "[0:v]scale=-1:2160[vid1]; [1:v]scale=-1:2160[vid2]; [vid1][vid2]hstack=inputs=2" -c:v hevc_nvenc -preset p1 -tune lossless -t $duration $output
 
 ```
+## Compare videos side by side using images
+
+``` powershell
+
+$video1 = "video1.mp4"
+$video2 = "video2.mp4"
+
+$outputDirectory = "comparison_images"
+$interval = 10
+$scaleHeight = 1080
+$duration = 100
+# Create a directory to store the comparison images
+if (-not (Test-Path $outputDirectory)) {
+    New-Item -Path $outputDirectory -ItemType Directory
+}
+
+for ($timestamp = 0; $timestamp -lt $duration; $timestamp += $interval) {
+    $frame1 = "$outputDirectory/frame1.png"
+    $frame2 = "$outputDirectory/frame2.png"
+    $output = "$outputDirectory/comparison_$timestamp.jpg"
+    ffmpeg -ss $timestamp  -i $video1 -vframes 1 -q:v 1 $frame1
+    ffmpeg -ss $timestamp  -i $video2 -vframes 1 -q:v 1 $frame2
+    ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $output
+    Remove-Item $frame1, $frame2
+}
+```
+
 ## Links:
 
  - https://ntown.at/de/knowledgebase/cuda-gpu-accelerated-h264-h265-hevc-video-encoding-with-ffmpeg/
