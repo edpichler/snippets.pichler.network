@@ -199,8 +199,10 @@ for ($timestamp = 0; $timestamp -lt $duration; $timestamp += $interval) {
     $frameCombined = "$outputDirectory/frame$timestamp-combined.png"
     ffmpeg -ss $timestamp  -i $video1 -vframes 1 -q:v 1 $frame1
     ffmpeg -ss $timestamp  -i $video2 -vframes 1 -q:v 1 $frame2
-    magick mogrify -gravity northwest -pointsize 24 -fill black -annotate +21+21 'Orginal' -fill white -annotate +20+20 'Orginal' $frame1
-    magick mogrify -gravity northwest -pointsize 24 -fill black -annotate +21+21 'Compressed' -fill white -annotate +20+20 'Compressed' $frame2
+    $label1 = "Original: $video1"
+    $label2 = "Compressed: $video2"
+    magick mogrify -gravity northwest -pointsize 20 -fill black -annotate +18+18 $label1 -fill white -annotate +16+16 $label1 $frame1
+    magick mogrify -gravity northwest -pointsize 20 -fill black -annotate +18+18 $label2 -fill white -annotate +16+16 $label2 $frame2
     ffmpeg -i $frame1 -i $frame2 -filter_complex "[0]scale=-1:$scaleHeight[frame1]; [1]scale=-1:$scaleHeight[frame2]; [frame1][frame2]hstack=inputs=2" -q:v 1 $frameCombined
 }
 ```
