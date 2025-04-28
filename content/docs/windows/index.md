@@ -31,8 +31,17 @@ fsutil hardlink list <filename>
 wsl -l -v
 
 #shutdown everything
-wsl --shutdown 
+wsl --shutdown
 
 #start the distro
 wsl -d <DistroName>
 ```
+## Enabling sudo for windows
+
+`sudo config --enable <configuration_option>`
+And `<configuration_option>` can be:  disable, enable, forceNewWindow, disableInput, normal, default
+
+* Maybe you'll need to `Install-Module -Name Sudo -Scope CurrentUser`
+
+And then, test if it works:
+`sudo help`
