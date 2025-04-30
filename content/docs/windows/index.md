@@ -14,7 +14,7 @@ weight: 10
 ```
 dir *.* | foreach-object { $newname = $_.Name.Remove($_.Name.Length - $_.Extension.Length) + ".mp4"; .\ffmpeg.exe -i "$_"  $newname }
 
-```  
+```
 Some properties in the returning variable are: $_.Name, $_.BaseName, $_.FullName.
 
 ## Creating hardlinks in Windows
@@ -38,10 +38,25 @@ wsl -d <DistroName>
 ```
 ## Enabling sudo for windows
 
-`sudo config --enable <configuration_option>`
-And `<configuration_option>` can be:  disable, enable, forceNewWindow, disableInput, normal, default
+Activate sudo in Windows Settings:
+
+![Windows Sudo Settings](../../resources/win-sudo-settings.png)
 
 * Maybe you'll need to `Install-Module -Name Sudo -Scope CurrentUser`
 
+Then, open PowerShell and run:
+
+`sudo config --enable <configuration_option>`
+And `<configuration_option>` can be:  disable, enable, forceNewWindow, disableInput, normal, default
+
+
 And then, test if it works:
 `sudo help`
+
+
+## Bitlocker
+Unlock:
+
+`sudo manage-bde -unlock F:`
+
+`sudo manage-bde -lock F:`
