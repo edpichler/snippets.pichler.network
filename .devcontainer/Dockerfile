@@ -1,6 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
 USER root
+RUN chsh -s /bin/zsh vscode
+
+# apt default tools
 RUN apt-get update && sudo apt upgrade -y
 RUN apt-get -y install --no-install-recommends tmux \
     && echo "set -g mouse on" >> /etc/tmux.conf
@@ -8,6 +11,7 @@ RUN apt-get -y install --no-install-recommends git git-crypt
 RUN apt-get -y install --no-install-recommends gnupg2
 RUN apt-get -y install --no-install-recommends curl
 RUN apt-get -y install --no-install-recommends neovim dos2unix
+RUN apt-get -y install --no-install-recommends bat
 
 # apt hugo
 RUN apt-get -y install --no-install-recommends hugo
