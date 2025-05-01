@@ -57,6 +57,6 @@ And then, test if it works:
 ## Bitlocker
 Unlock:
 
-`sudo manage-bde -unlock F:`
+`sudo manage-bde -unlock -password F:`
 
 `sudo manage-bde -lock F:`
